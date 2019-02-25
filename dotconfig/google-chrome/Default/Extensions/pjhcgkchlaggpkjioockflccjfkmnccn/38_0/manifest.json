@@ -1,0 +1,22 @@
+{
+   "content_scripts": [ {
+      "exclude_matches": [ "*://*.myfitnesspal.com/reports/printable_diary*", "*://*.myfitnesspal.com/*/reports/printable_diary*" ],
+      "js": [ "jquery-2.1.0.min.js", "underscore-min.js", "content_script.js" ],
+      "matches": [ "*://*.myfitnesspal.com/reports*", "*://*.myfitnesspal.com/*/reports*" ]
+   }, {
+      "js": [ "jquery-2.1.0.min.js", "underscore-min.js", "myfitnesspal_x_foodfastfit.js" ],
+      "matches": [ "*://*.foodfastfit.com/myfitnesspal-x-foodfastfit*", "*://*.foodfastfit.com/_/myfitnesspal-x-foodfastfit*" ]
+   } ],
+   "icons": {
+      "128": "foodfastfit128.png",
+      "16": "foodfastfit16.png",
+      "48": "foodfastfit48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyWEJ4xPtfIACH5J50qnykvTQRTjY8KPzaMuKvydgi0l2h+wvdTriq+wEWLMRciHLIpxov0mJaDyDdollhKihPLF6hkh+1QByIgCNhobseQvWZu8rAVdTuO6Ff27xZ4OEBAHSZH8bo8E9u4BxF50+zHWoST8J6QZrnlv1l7byvghaBeKgrUAxcvVqkzYW/b0x/KxueVKZe92ZbDzruJScCikWB32OJHyAtzDtsBV1pEDQVYsbapT+d1gMFgUsNNccOEsPIZ8s5EHKqY4rGotObwXoWgd/lh1V0Bci1BmB/KDiq/hxWPFwhplgaqEoTB+GFSA9F3ksS52Pe1tTRwKxRwIDAQAB",
+   "manifest_version": 2,
+   "name": "MyFitnessPal Data Exporter by FOODFASTFIT",
+   "permissions": [ "http://foodfastfit.com/", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "38",
+   "web_accessible_resources": [ "underscore-min.map" ]
+}

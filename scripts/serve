@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Written 2012-02-04 by Joe Legner
+# See www.linuxquestions.org/questions/programming-8/using-grep-and-awk-to-get-ip-address-627626 for awk command
+# Added Cygwin alternate 2012-12-28
+
+if [ `uname -o` = 'Cygwin' ]; then
+    ipaddr=`ipconfig | grep -i 'IP Address' | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'`
+else
+    ipaddr=`ifconfig | awk -F ":" '/inet addr.*Bcast/{split($2,a," ");print a[1]}'`
+fi
+cmd="python manage.py runserver $ipaddr:8000"
+echo $cmd
+exec $cmd

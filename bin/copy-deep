@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# 2018-02-05 J. M. Legner
+
+## Synchronize Dropbox/Projects/DEEP with Microsoft OneDrive
+## This is a two-way copy with no deletions
+#echo Copy Dropbox to OneDrive
+#rclone -v copy /media/family/Dropbox/Projects/DEEP onedrive:DEEP
+#echo Copy OneDrive to Dropbox
+#rclone -v copy onedrive:DEEP /media/family/Dropbox/Projects/DEEP 
+
+## Synchronize Dropbox/Projects/DEEP with Google Drive
+## This is a two-way copy with no deletions
+#echo Copy Dropbox to Google Drive
+#rclone -v copy /media/family/Dropbox/Projects/DEEP gdrive:DEEP
+#echo Copy Google Drive to Dropbox
+#rclone -v copy gdrive:DEEP /media/family/Dropbox/Projects/DEEP 
+
+echo This script disabled for now until I know effects. I am afraid will
+echo clutter things because it does not delete at this time.
+echo 2018-02-11 J. M. Legner
+

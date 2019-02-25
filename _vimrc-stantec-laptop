@@ -1,0 +1,5 @@
+set runtimepath=.,C:\Users\jlegner\My\ Documents\dotfiles\vim,$PATH
+set path=.,C:\Users\jlegner\My\ Documents\,$PATH
+source C:\Users\jlegner\My\ Documents\dotfiles\vimrc
+source C:\Users\jlegner\My\ Documents\dotfiles\vim\plugin\snipMate.vim
+source C:\Users\jlegner\My\ Documents\dotfiles\vim\after\plugin\snipMate.vim

@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Options - Add to Wunderlist</title>
+
+    <link href="../css/general.css" rel="stylesheet" type="text/css">
+    <link href="../css/options.css" rel="stylesheet" type="text/css">
+
+    <script src="../scripts/vendor/wunderbits.core.min.js"></script>
+    <script src="../scripts/vendor/wunderlist.sdk.min.js"></script>
+    <script src="../scripts/vendor/jquery.min.js"></script>
+    <script src="../scripts/vendor/lodash.underscore.min.js"></script>
+    <script src="../scripts/vendor/backbone.min.js"></script>
+
+    <script src="../scripts/namespace.js"></script>
+    <script src="../scripts/langData.js" charset="UTF-8"></script>
+    <script src="../scripts/localization.js"></script>
+    <script src="../scripts/views.js"></script>
+    <script src="../scripts/options.js"></script>
+    <script src="../scripts/ga.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <div class="image"></div>
+        <h1><localized rel="label_add_to_wunderlist">Add to Wunderlist</localized></h1>
+        <p>
+          <strong>
+            <localized rel="settings_version">Version</strong> <span class="version-number">3.0.0</span>
+          </strong>
+        </p>
+      </div>
+
+      <div class="login-details">
+        <div class="loading"></div>
+        <div class="details hidden">
+          <p>
+            <strong><localized rel="public_list_label_logged_in_as">Logged in as</localized>:</strong>
+            <span class="user-name"></span>
+          </p>
+          <a class="logout-button"><localized rel="button_log_out">Sign Out</localized></a>
+        </div>
+        <div class="logged-out hidden">
+          <button class="blue login-button">
+            <localized rel="button_sign_in">Login</localized>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <ul>
+        <li><a href="https://www.wunderlist.com/home" target="_blank"><localized rel="settings_visit_website">Visit Website</localized></a></li>
+        <li><a href="https://www.wunderlist.com/download" target="_blank"><localized rel="button_download">Download Wunderlist</localized></a></li>
+        <li><a href="https://chrome.google.com/webstore/detail/add-to-wunderlist/dmnddeddcgdllibmaodanoonljfdmooc/reviews" target="_blank"><localized rel="rate_app_button_yes">Rate Wunderlist Now</localized></a></li>
+        <li><a href="https://support.wunderlist.com" target="_blank"><localized rel="settings_get_help">Give Feedback</localized></a></li>
+        <li><a href="whats-new.html">What's New</a></li>
+        <!--<li><a href="#" target="_blank">Tell a friend</a></li>-->
+      </ul>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+MAILTO=joelegner@gmail.com
+
+# Minute Hour DayOfMonth Month DayOfWeek
+
+# Start apache2 server if not running
+10,30,50 * * * * /home/legner/webapps/mp_trac/apache2/bin/restart > /dev/null 2>&1
+14,34,54 * * * * ~/webapps/bears2/apache2/bin/start >/dev/null 2>&1
+
+# Restart dropbox; down from 3:30 am to 3:35 am EST
+# which is 8:30 am to 8:35 am UTC
+#30 8 * * * /usr/local/bin/python2.7 ~/bin/dropbox.py stop
+#35 8 * * * /usr/local/bin/python2.7 ~/bin/dropbox.py start
+
+# Delete dropbox cache at 3:45 am EST
+#45 8 * * * rm -Rf /home/legner/Dropbox/.dropbox.cache/*
+
+#30 8 * * * svnsync sync file:///home/legner/Dropbox/legeng/it/data/backups/svnbackup 2>&1
+#14,34,54 * * * * ~/webapps/intranet/apache2/bin/start >/dev/null 2>&1
+
+# Perform daily MySQL database backup 4:15 am EST = 9:15 am UTC
+15 9 * * * ~/bin/legutils/backup-databases.sh
+30 9 * * * ~/bin/dropbox_uploader.sh upload ~/backups/ /
+
+# Perform backup of crontab daily at 2:13 pm EST = 7:13 pm UTC
+13 19 * * * crontab -l > ~/.files/webfaction-specific/legner_crontab
+
+# Email myself a shopping list for after work at 4:30 pm M-F EST
+# Disabled 2013-09-04
+# 30 20 * * 1,2,3,4,5 ~/.files/webfaction-specific/email_shopping_list.sh
+
+# Email myself a list of items for Julie at 4:35 pm M-F EST
+# Disabled 2013-09-04
+# 35 20 * * 1,2,3,4,5 ~/.files/webfaction-specific/email_julie_list.sh
+
+# Always end crontab file with a newline
+

@@ -1,0 +1,30 @@
+{
+   "background": {
+      "page": "html/background.html"
+   },
+   "browser_action": {
+      "default_icon": {
+         "19": "icons/AddToWLIcon19.png",
+         "38": "icons/AddToWLIcon19@2x.png"
+      },
+      "default_popup": "html/popup.html",
+      "default_title": "__MSG_appName__"
+   },
+   "content_scripts": [ {
+      "js": [ "scripts/vendor/jquery.min.js", "scripts/vendor/portWrapper.js", "scripts/namespace.js", "scripts/inject.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+   } ],
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+   "default_locale": "en",
+   "description": "__MSG_appDesc__",
+   "icons": {
+      "128": "icons/AddToWLIcon128.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4ftkReJy6CjV9+EAfMKFO9eUdwvarBN2zFOJeY7F1uGc8Q2LU/QFajs1J/5PWEKg180x5UR+Gk4aUMO/angMpSO2mEcMpygJVaSHdp2XtgR+ZqFGpiBHKmReT2qKaqTaXSVcfvs99i1wa/LsOj1u++4l6v9DtCqbkPpeoKy0K4QIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_appName__",
+   "options_page": "html/options.html",
+   "permissions": [ "contextMenus", "http://*/*", "https://*/*", "identity", "storage", "tabs" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "3.5.0"
+}

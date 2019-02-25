@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# $0 = App name
+# $1 = Filename
+# $2 = Speed (fraction)
+# $3 = Start position in minutes:seconds
+# $4 = Duration to repeat, seconds
+
+usage(){
+	echo "Usage: $0 filename speed startpos duration"
+    echo "speed is a fraction where 1.0 = normal speed, 0.5 = half speed, etc. (default 1)"
+    echo "startpos is position in minutes and seconds, mm:ss (default 0:00)"
+    echo "duration is in seconds (default 999)"
+	exit 1
+}
+
+# define is_file_exits function 
+# $f -> store argument passed to the script
+is_file_exits(){
+	local f="$1"
+	[[ -f "$f" ]] && return 0 || return 1
+}
+
+
+# Echo usage if no filename provided
+[[ $# -eq 0 ]] && usage
+
+
+# Invoke is_file_exits
+if ( is_file_exits "$1" )
+then
+ cmd="mplayer -loop 0 -ss ${3-0:00} -endpos ${4-999} -af scaletempo -speed ${2-1} '$1'"
+ echo $cmd
+ eval $cmd
+else  
+ echo "File not found"
+ exit 1
+fi
+
+

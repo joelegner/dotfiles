@@ -1,0 +1,6 @@
+echo $0
+echo $1
+
+find $1 -type f -exec shred -v -u {} \;
+rmdir $1
+

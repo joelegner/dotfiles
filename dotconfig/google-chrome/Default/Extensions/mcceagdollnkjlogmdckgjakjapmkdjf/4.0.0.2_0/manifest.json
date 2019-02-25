@@ -1,0 +1,20 @@
+{
+   "browser_action": {
+      "default_icon": "DownloadMaster/images/icon.png",
+      "default_popup": "DownloadMaster/main.html"
+   },
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+   "description": "Download all files linked on the web page",
+   "icons": {
+      "128": "DownloadMaster/images/icon_128x128.png",
+      "16": "DownloadMaster/images/icon_16x16.png",
+      "48": "DownloadMaster/images/icon_48x48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDATAWP91nxHJhXEadAqADV1lJfXEIB583xcCXhykv2anq0HKZIfaDD6ZTqCV8iOF5cSil4MZGziaVSXRz2Td02WEGZOmu5FSVzI+pjo6As6SIuMqkPl2VYL01mt/OWZUFBKOfoUx/wnJDvDMe5+9MTiBzeiCSQx/vqEK3pEJcxrwIDAQAB",
+   "manifest_version": 2,
+   "name": "Download Master",
+   "offline_enabled": true,
+   "permissions": [ "tabs", "http://*/", "https://*/" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "4.0.0.2"
+}

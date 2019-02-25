@@ -1,0 +1,25 @@
+# See sudo crontab -l
+# *    *    *    *    *    command
+# |    |    |    |    |
+# |    |    |    |    +--- day of week (0 - 7, 0 is Sun, or use names)
+# |    |    |    |
+# |    |    |    +-------- month (1-12)
+# |    |    |    
+# |    |    +------------- day of month (1-31)    
+# |    |        
+# |    +------------------ hour (0-23)
+# |            
+# +----------------------- minute (0-59)
+
+# Clear out temp directories
+0 22 * * *  /home/legnerjm/bin/cleanup-temp.sh
+
+# Copy crontab to .files
+4 3 * * * crontab -l > /home/legnerjm/.files/legner5-specific/legnerjm_crontab
+
+# Restart dropbox at 4:07 am every day and restart 30 min later
+7 4 * * * dropbox stop
+37 4 * * * dropbox start
+
+# Always leave a newline at the end of a crontab file
+

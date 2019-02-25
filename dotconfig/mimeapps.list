@@ -1,0 +1,12 @@
+[Added Associations]
+application/x-rpm=yumex-local.desktop;
+x-scheme-handler/http=google-chrome.desktop;
+x-scheme-handler/https=google-chrome.desktop;
+application/pdf=google-chrome.desktop;
+text/plain=gvim.desktop;
+
+[Default Applications]
+application/x-rpm=yumex-local.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+text/plain=gvim.desktop

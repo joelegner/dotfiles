@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+from pdfminer.pdfdocument import PDFDocument
+from pdfminer.pdfparser import PDFParser
+import os
+import re
+
+
+path=os.path.split(os.path.abspath(__file__))[0]
+
+def sanitize(string):
+    """Returns a string sanitized by removing illegal characters and
+    replacing spaces with underscores"""
+    retval = string.lower()
+    retval = re.sub(r"[^\w\s]", '', retval)
+    retval = re.sub(r"\s+", '_', retval)
+    return retval
+
+
+def get_title_author(f):
+    "Returns (title, author) as strings"
+    title=None
+    author=None
+    fp = open(f, 'rb')
+    parser = PDFParser(fp)
+    doc = PDFDocument(parser)
+    info = doc.info[0]
+    if "Title" in info.keys():
+        title = info["Title"]
+    if "Author" in info.keys():
+        author = info["Author"]
+    fp.close()
+    return title, author
+
+
+def rename_if_not_exists(oldname, newname):
+    if not os.path.exists(newname):
+        print
+        print oldname
+        print newname
+        os.rename(oldname, newname)
+
+for root,dirs,files in os.walk(path):
+    for oldname in files:
+        if oldname.lower().endswith('.pdf'):
+            oldname = os.path.join(root, oldname)
+            title, author = get_title_author(oldname)
+            if title is not None:
+                newname = sanitize(title.lower())
+                if author is not None:
+                    newname = newname + "-" + sanitize(author) + ".pdf"
+            else:
+                print "No title metadata found."
+                newname = os.path.splitext(sanitize(oldname))[0] + ".pdf"
+            rename_if_not_exists(oldname, os.path.join(root, newname))
+
