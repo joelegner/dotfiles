@@ -27,11 +27,13 @@ alias fitxt="find . -type f -name '*.txt' | xargs fgrep -s"
 alias g='cd $GOOGLEONE'
 alias tree='tree --charset=ASCII'
 
-# virtualenvwrapper settings
-# http://virtualenvwrapper.readthedocs.org/en/latest/
-export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/bin/python3
-source virtualenvwrapper.sh
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    # virtualenvwrapper settings
+    # http://virtualenvwrapper.readthedocs.org/en/latest/
+    export WORKON_HOME=~/.virtualenvs
+    export VIRTUALENVWRAPPER_PYTHON=/bin/python3
+    source virtualenvwrapper.sh
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
