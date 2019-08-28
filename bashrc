@@ -27,7 +27,9 @@ alias fitxt="find . -type f -name '*.txt' | xargs fgrep -s"
 alias g='cd $GOOGLEONE'
 alias tree='tree --charset=ASCII'
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias gvim='/Applications/MacVim.app/Contents/bin/gvim'
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     # virtualenvwrapper settings
     # http://virtualenvwrapper.readthedocs.org/en/latest/
     export WORKON_HOME=~/.virtualenvs
@@ -46,3 +48,5 @@ fi
 # See http://docs.python.org/2/using/cmdline.html#envvar-PYTHONSTARTUP
 export PYTHONSTARTUP=~/.files/pythonstartup.py
 
+# Add Visual Studio Code (code) to path
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

@@ -301,3 +301,10 @@ autocmd BufReadPost todo.txt set filetype=todotxt
 " Delete trailing whitespace when saving
 autocmd FileType c,cpp,php,python autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin"
+    set guifont=Menlo\ Regular:h14
+  endif
+endif
+
