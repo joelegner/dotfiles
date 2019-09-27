@@ -1,8 +1,9 @@
 #!/usr/bin/bash
 
+echo -n "Loading my .bashrc ... "
+
 export GOOGLEONE=/media/family/GoogleOne
 export EDITOR=vi
-export PYTHONPATH=$PYTHONPATH:/media/family/GoogleOne/Tools
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.files/scripts
 export PS1="[\u \W]\$ " # Use Webfaction's prompt
@@ -29,6 +30,20 @@ alias tree='tree --charset=ASCII'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias gvim='/Applications/MacVim.app/Contents/bin/gvim'
+    # Add Visual Studio Code (code) to path
+    export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+    # Add MacVim to path
+    export PATH="$PATH:/Applications/MacVim.app/Contents/bin"
+
+    # Add MacTeX to the path
+    export PATH="$PATH:/Library/TeX/texbin"
+
+    # Configure Python3
+    export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"
+    export PYTHONPATH=$PYTHONPATH:/Users/joelegner/Library
+    alias python='python3'
+
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     # virtualenvwrapper settings
     # http://virtualenvwrapper.readthedocs.org/en/latest/
@@ -48,5 +63,5 @@ fi
 # See http://docs.python.org/2/using/cmdline.html#envvar-PYTHONSTARTUP
 export PYTHONSTARTUP=~/.files/pythonstartup.py
 
-# Add Visual Studio Code (code) to path
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+echo "done."
+
