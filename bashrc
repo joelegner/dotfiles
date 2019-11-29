@@ -31,7 +31,7 @@ alias tree='tree --charset=ASCII'
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias gvim='/Applications/MacVim.app/Contents/bin/gvim'
     # Add Visual Studio Code (code) to path
-    export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+    export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Users/joelegner/.files/bin"
 
     # Add MacVim to path
     export PATH="$PATH:/Applications/MacVim.app/Contents/bin"
@@ -41,7 +41,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Configure Python3
     export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"
-    export PYTHONPATH=$PYTHONPATH:/Users/joelegner/Library
+    export PYTHONPATH=$PYTHONPATH:/Users/joelegner/Development/Projects
     alias python='python3'
 
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
