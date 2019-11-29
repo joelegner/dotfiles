@@ -42,7 +42,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # Configure Python3
     export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"
     export PYTHONPATH=$PYTHONPATH:/Users/joelegner/Development/Projects
+    
     alias python='python3'
+    alias filepics='/Users/joelegner/.local/share/virtualenvs/calcs-KQQ8jGyT/bin/python /Users/joelegner/.files/bin/file.py'
 
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
     # virtualenvwrapper settings

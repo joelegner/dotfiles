@@ -1,15 +1,12 @@
 #!/usr/bin/env python
 """
-$ # Craeted 2016-05-31 J. M. Legner
+$ # Created 2016-05-31 J. M. Legner
 $ # Latest  2017-10-14 J. M. Legner
+$ # Updated to use on Mac Mini 2019-11-29 J. M. Legner
 $ # This is how this program is used:
 $ #
 $ # python file.py _unfiled/
 """
-
-# Activate the organize-photos virtualenv before imports (added 2017-09-16)
-activate_this_file = "/home/joe/.virtualenvs/organize-photos/bin/activate_this.py"
-execfile(activate_this_file, dict(__file__=activate_this_file))
 
 # These imports will use the virtual environment
 import datetime
