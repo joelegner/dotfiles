@@ -2,8 +2,9 @@
 
 echo -n "Loading my .bashrc ... "
 
-export GOOGLEONE=/media/family/GoogleOne
+export GOOGLEONE="/Users/joelegner/Google Drive"
 export EDITOR=vi
+export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.files/scripts
 export PS1="[\u \W]\$ " # Use Webfaction's prompt
@@ -25,8 +26,9 @@ alias fihtml="find . -type f -name '*.html' | xargs fgrep -s"
 alias fipy="find . -type f -name '*.py' | xargs fgrep -s"
 alias first="find . -type f -name '*.rst' | xargs fgrep -s"
 alias fitxt="find . -type f -name '*.txt' | xargs fgrep -s"
-alias g='cd $GOOGLEONE'
+alias g='cd "$GOOGLEONE"'
 alias tree='tree --charset=ASCII'
+alias ytmp3='youtube-dl --extract-audio --audio-format mp3'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     alias gvim='/Applications/MacVim.app/Contents/bin/gvim'
@@ -43,7 +45,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"
     export PYTHONPATH=$PYTHONPATH:/Users/joelegner/Development/Projects
     
-    alias python='python3'
+    alias python=python3.7
     alias filepics='/Users/joelegner/.local/share/virtualenvs/calcs-KQQ8jGyT/bin/python /Users/joelegner/.files/bin/file.py'
 
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then

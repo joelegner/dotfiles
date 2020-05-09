@@ -107,8 +107,7 @@ endif
 if has("gui_running")
     set lines=40		                 " Window height in lines.
     set columns=85	                     " Window width in characters.
-    colorscheme joe                      " Changed 2011-03-04
-    set guifont=Liberation\ Mono\ 16     " Changed 2015-10-11
+    set guifont=Monaco:h16               " Changed 2019-12-10
     set cursorline      " Highlight current line background
                         " (cursorcolumn also available)
 else
