@@ -2,3 +2,5 @@ export PATH="$PATH:/usr/local/sbin:$HOME/bin:$HOME/.files/scripts:/Applications/
 
 # Make sure we are using the Homebrew version of Python 3.8
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+export PROJECTS="/Users/joelegner/Google Drive/Projects"
+
