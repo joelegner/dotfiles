@@ -208,6 +208,8 @@ ZSH_THEME="clean" # Trying as of 2020-07-19
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+# Joe's path 2020-06-20
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -254,13 +256,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Joe's path 2020-06-20
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
-
-# Joe's aliases
 alias python=python3
 alias g="cd ~/Google\ Drive/"
 alias pip=pip3
 alias p="cd '$PROJECTS'"
 alias ebook-convert=/Applications/calibre.app/Contents/MacOS/ebook-convert 
+alias duo="clear && shuf -e"
+

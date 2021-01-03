@@ -47,7 +47,7 @@ let g:EnhCommentifyTraditionalMode = 'N'
 "source $legnerjm/plugin/imaps.vim
 
 " These insert mode abbreviations are for all file types.
-"source $legnerjm/scripts/snippets.vim
+Gg:q!"source $legnerjm/scripts/snippets.vim
 "
 " http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
 " Look in current directory for tags and then work up tree to root until found
@@ -112,7 +112,7 @@ if has("gui_running")
                         " (cursorcolumn also available)
 else
     " No GUI running
-    colorscheme desert      " Added 2012-02-01
+    colorscheme default     " Changed 2020-12-22
     set nospell             " Added 2012-02-01
     set nocursorline        " Do not highlight current line background
 endif

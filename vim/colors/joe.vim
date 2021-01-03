@@ -113,7 +113,7 @@ hi MoreMsg      term=bold ctermfg=2 gui=bold guifg=SeaGreen
 hi NonText      term=bold ctermfg=9 gui=bold guifg=Blue
 
 " NORMAL TEXT
-hi Normal       font=Lucida_Console:h11:cDEFAULT
+" hi Normal       font=Lucida_Console:h11:cDEFAULT
 
 "Number          links to Constant
 
