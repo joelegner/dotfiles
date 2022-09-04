@@ -69,3 +69,4 @@ export PYTHONSTARTUP=~/.files/pythonstartup.py
 
 echo "done."
 
+. "$HOME/.cargo/env"

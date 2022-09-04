@@ -219,7 +219,6 @@ export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 plugins=(
   autopep8
   brew
-  django
   dotenv
   git
   heroku
@@ -256,10 +255,51 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python=python3
+alias python=python3.10
+alias python3=python3.10
 alias g="cd ~/Google\ Drive/"
 alias pip=pip3
 alias p="cd '$PROJECTS'"
 alias ebook-convert=/Applications/calibre.app/Contents/MacOS/ebook-convert 
 alias duo="clear && shuf -e"
+alias yt2mp3="youtube-dl -x --audio-format mp3"
+
+# Added this on 2021-12-17
+# It creates and activates a new python virtual env if it does not exist
+alias venv="[[ ! -d 'venv' ]] && python -m venv venv && source venv/bin/activate"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+
+# Created by `pipx` on 2021-06-26 15:53:49
+export PATH="$PATH:/Users/joelegner/.local/bin"
+
+# Source the Rust env variables
+source $HOME/.cargo/env
+
+
+# Added for Eiffel Studio
+export ISE_EIFFEL=/usr/local/Eiffel_21.11
+export ISE_PLATFORM=maxosx-x86-64 
+export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin
+
+
+#[ -f "/Users/joelegner/.ghcup/env" ] && source "/Users/joelegner/.ghcup/env" # ghcup-env
+[ -f "/Users/joelegner/.ghcup/env" ] && source "/Users/joelegner/.ghcup/env" # ghcup-env
+
+# opam configuration
+[[ ! -r /Users/joelegner/.opam/opam-init/init.zsh ]] || source /Users/joelegner/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+# zsh completions
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
+
+# Add Gnat to the path
+export PATH="/Users/joelegner/opt/GNAT/2020/bin:$PATH"
 
