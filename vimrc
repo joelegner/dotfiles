@@ -19,42 +19,38 @@
 " ==========================================================================
 " Compatibility
 " ==========================================================================
-" Tell Pathogen to install packages found under .vim/bundle
-" https://github.com/tpope/vim-pathogen
-"call pathogen#infect()      " Must precede filetype plugin indent on
-
 filetype plugin indent on   " Detect file type, enable loading the indent file
                             " for specific file type and enable loading plugin
                             " files for specific file types.
-set nocompatible	" Do not behave like vi.
-set noignorecase    " Do not ignore case when searching.
+set nocompatible	        " Do not behave like vi.
+set noignorecase            " Do not ignore case when searching.
 set backspace=indent,eol,start  " Delete indents, end of lines and starts
 
 " Turn on spell checking by default
 "setlocal spell spelllang=en_us
 
-let $legnerjm=expand("<sfile>:p:h")
+let $legnerjm=expand("<sfile>:p:h") " /Users/joelegner (on MacOS)
 
-" Toggle comments using ALT-X.
-" http://www.vim.org/scripts/script.php?script_id=23
-" User-mode:
-" Comment				        <M-x>
-" Comment	+ one line down		<M-c>
-" DeComment			            <M-y>
-" DeComment + one line down	    <M-v>
-let g:EnhCommentifyUseAltKeys = 'yes'
-let g:EnhCommentifyTraditionalMode = 'N'
-"source $legnerjm/plugin/imaps.vim
-
-" These insert mode abbreviations are for all file types.
-Gg:q!"source $legnerjm/scripts/snippets.vim
-"
 " http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
 " Look in current directory for tags and then work up tree to root until found
 set tags=./tags;/
 
 " Make it so VIM uses ctags file for autocomplete
 set complete=.,t
+
+" ==========================================================================
+" Plugin Manager vim-plug
+" ==========================================================================
+call plug#begin()
+" Always use single quotes '...'
+" Use :PlugInstall to install the plugins after adding one.
+" after it completes, press q to exit the little side window.
+" Use :PlugUpgrade to upgrade vim-plug itself
+Plug 'https://github.com/honza/vim-snippets'
+Plug 'https://github.com/vim-scripts/AutoComplPop'
+Plug 'https://github.com/thindil/vim-ada'
+Plug 'https://github.com/preservim/nerdcommenter'
+call plug#end()
 
 
 " ==========================================================================
@@ -79,6 +75,11 @@ set wildmode=full
 set wrap		    " Wrap long lines of text
 syntax on           " Turn on syntax highlighting.
 set foldenable      " Turn on folding
+" NERDCommenter 
+" https://github.com/preservim/nerdcommenter
+" Use Control + Underscore (_) key to toggle
+nmap <C-_>   <Plug>NERDCommenterToggle<CR>
+vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
 "Format options:
 "set formatoptions=tcroql
 "t	Auto-wrap text using textwidth
@@ -92,27 +93,16 @@ set foldenable      " Turn on folding
 "   'textwidth' when the insert command started, Vim does not
 "    automatically format it.
 
-" Colors
-" ------
-if has("win32")
-    " Make highlighted text look like Windows default
-    hi Visual guibg=Sys_Highlight guifg=Sys_HighlightText
-else
-    " Make highlighted text darker than default LightGrey
-    hi Visual term=reverse cterm=reverse guibg=Grey
-endif
-
-
 " Screen font for gui mode
 if has("gui_running")
-    set lines=40		                 " Window height in lines.
-    set columns=85	                     " Window width in characters.
-    set guifont=Monaco:h16               " Changed 2019-12-10
+    colorscheme jellybeans              " Changed 2022-09-04
+    set lines=40		                " Window height in lines.
+    set columns=85	                    " Window width in characters.
+    set guifont=Monaco:h16              " Changed 2019-12-10
     set cursorline      " Highlight current line background
-                        " (cursorcolumn also available)
+    set nocursorcolumn  " (cursorcolumn also available)
 else
     " No GUI running
-    colorscheme default     " Changed 2020-12-22
     set nospell             " Added 2012-02-01
     set nocursorline        " Do not highlight current line background
 endif
@@ -201,7 +191,7 @@ iabbr teh the
 " Python (*.py)
 " -------------------------------------
 " Import vim configuration upon opening a .py file.
-autocmd BufEnter *.py source ~/.vim/pyedit.vim
+" autocmd BufEnter *.py source ~/.vim/pyedit.vim
 " Load Python-specific menu.
 autocmd BufEnter *.py source ~/.vim/scripts/python.vim
 " Turn on omni completion for python.
@@ -273,37 +263,4 @@ autocmd BufRead *.vim set nowrap
 " ------------------------------------------
 autocmd BufRead *.otl set printoptions=number:y " print line numbers
 autocmd BufReadPost *.otl set foldlevel=0
-
-" ------------------------------------------
-" Getting Things Done list (*.gtd)
-" ------------------------------------------
-autocmd BufRead *.gtd set printoptions=number:y " print line numbers
-autocmd BufReadPost *.gtd hi def link waitTodo Todo
-autocmd BufReadPost *.gtd match waitTodo /\<WAIT\>/
-autocmd BufReadPost *.gtd set filetype=vo_base.gtd
-autocmd BufReadPost *.gtd set foldlevel=0
-" Highlight columns to right of 72 so they don't wrap when printed
-autocmd BufReadPost *.gtd 2match DiffAdd /\%>78v.*/
-" \t appends highlighted text to todo/todo.txt
-autocmd BufReadPost *.gtd vnoremap <Leader>t :<c-u>silent! '<,'> w! >> todo/todo.txt<CR>
-" Create a Vimoutliner check box
-autocmd BufReadPost *.gtd map <Leader>b ,,cbj
-" Toggle state of a Vimoutliner check box
-autocmd BufReadPost *.gtd map <Leader>x ,,cxj
-
-" ------------------------------------------
-" todo.txt
-" ------------------------------------------
-autocmd BufReadPost todo.txt set filetype=todotxt
-" autocmd BufWritePre todo.txt :sort
-
-" Delete trailing whitespace when saving
-autocmd FileType c,cpp,php,python autocmd BufWritePre <buffer> :%s/\s\+$//e
-
-if has("unix")
-  let s:uname = system("uname -s")
-  if s:uname == "Darwin"
-    set guifont=Menlo\ Regular:h14
-  endif
-endif
 
