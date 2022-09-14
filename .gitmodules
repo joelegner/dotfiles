@@ -1,0 +1,4 @@
+[submodule "vim/plugged/AutoComplPop"]
+    path = vim/plugged/AutoComplPop
+    url = https://github.com/vim-scripts/AutoComplPop
+
