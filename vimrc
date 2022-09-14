@@ -50,6 +50,7 @@ Plug 'https://github.com/honza/vim-snippets'
 Plug 'https://github.com/vim-scripts/AutoComplPop'
 Plug 'https://github.com/thindil/vim-ada'
 Plug 'https://github.com/preservim/nerdcommenter'
+Plug 'https://github.com/vim-airline/vim-airline'
 call plug#end()
 
 
@@ -69,7 +70,7 @@ set showmatch		" Show matching brackets when typed.
 set showmode        " Display current mode in lower left corner.
 set smarttab		" Insert spaces at the beginning of a line.
 set softtabstop=4	" Treat groups of (4) spaces as tabs when deleting.
-set tabstop=4		" Width of a tab in characters.
+set tabstop=4		" Width of a tab in characters. Override for Ada.
 set wildmenu        " Turn on wild menu
 set wildmode=full
 set wrap		    " Wrap long lines of text
@@ -263,4 +264,21 @@ autocmd BufRead *.vim set nowrap
 " ------------------------------------------
 autocmd BufRead *.otl set printoptions=number:y " print line numbers
 autocmd BufReadPost *.otl set foldlevel=0
+
+" -------------------------------------
+" Ada (*.tex)
+" -------------------------------------
+" Change width to 3 to match gnatpp default
+autocmd BufEnter *.adb set shiftwidth=3
+autocmd BufEnter *.ads set shiftwidth=3
+autocmd BufEnter *.adb set tabstop=3
+autocmd BufEnter *.ads set tabstop=3
+autocmd BufEnter *.adb set softtabstop=3
+autocmd BufEnter *.ads set softtabstop=3
+
+" -------------------------------------
+" logos.txt
+" -------------------------------------
+" Treat my special logos.txt file as markdown.
+autocmd BufNewFile,BufFilePre,BufRead logos.txt set filetype=markdown
 
