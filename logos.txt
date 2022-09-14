@@ -10,4 +10,2170 @@ author: Joe Legner, Sr.
 
 `logos.txt` is a special text file with everything I know. I created it on September 14, 2022 at 12:21 pm in Valrico, Florida.
 
+# 2006
 
+## 2006-03-20
+
+Gave up on Debian AMD 64.  Installed 32-bit Etch (testing) system.  Detected
+SATA drive, but I chose to install on 80GB IDE drive.  I want to keep things
+simple!
+    
+## 2006-03-21
+
+Installed phpMyAdmin.
+
+Copied Building from leg to legner1 and started phpBEARS project.
+
+Installed nVidia driver from apt.  This resulted in much less flicker than the
+default Vesa driver.  Note that the driver is listed as nvidia in
+``/etc/X11/xorg.conf``, not nv.
+
+Source files should rightly go under ``/usr/src``
+
+To stop xserver, use ``/etc/init.d/gdm stop``
+To start it, user ``/etc/init.d/gdm start``
+
+In KDE, ALT-F2 brings up a run window.
+
+To rename all files and folders recursively to lowercase::
+   $ find * -exec rename 'y/A-Z/a-z/' "{}" \;
+
+To merge PDF files use the pdfjoin command.  See man pdfjoin.
+
+## 2006-03-22
+
+Started phpBEARS project on new machine (legner1).  So far all I have done is
+copy the original Building project from leg to ``/var/www/phpbears`` and resumed
+working on the planning documents.  I slightly reorganized the planning
+documents to make them more streamlined.
+
+## 2006-03-23
+
+To make a recursive, incremental backup with rsync::
+
+   rsync -a --delete -u -R source/ dest/
+
+where ``source/`` and ``dest/`` are the directory paths.  For example::
+
+   rsync -a --delete -u -R /home/legnerjm/ /home/legner1/backups/
+
+Got GD to work with PHP (see http://www.php.net/manual/en/ref.image.php)::
+
+   apt-get install php5-gd.
+   apache2 -k stop
+   apache2 -k start
+
+## 2006-03-24
+
+Julie put a notice on Freecycle for our cat, "Josey," and someone came and
+picked her up today.  She had been living in the storage room which was not a
+good place for her.  She will be better off now on a farm in Clinton, Illinois.
+
+Added functionality to chcase to replace spaces with underscore characters.
+Now use: ``chcase -r -d -s *``
+
+Finally found a good script to change the case of file and directory names: chcase from http://www.blemished.net/chcase
+
+2013-01-10 now located here: http://chcase.sourceforge.net/
+
+To rename files and sub-directories::
+
+   chcase -r -d *
+
+Using the 32-bit Debian has been a godsend.  I even have OpenOffice 2.0
+working - I couldn't get ANY version of OOo to work on AMD64!  I will probably
+give it a shot in a year or two.
+
+Revised backup script to keep a rotating daily backup named
+``/home/legner1/backups/daily/0-Sun, 1-Mon, ..., 6-Sat``.  This is only for
+``legeng``, ``legnerjm``, and ``/var/www directories``.
+
+The daily backup script is ``/root/scripts/backup-daily.sh``.  Also made
+``backup-weekly.sh`` that runs on Friday 7:00 pm (cron).
+
+## 2006-03-25
+
+We took Joey to Chuck E. Cheese for food and playtime tonight.
+
+Happy day as we cleaned out the storage room; it was filthy due to the
+occupancy of the cat.  I vacuumed and then mopped the floor with a bleach
+solution.
+
+Regular expression examples on http://regexlib.com
+
+To turn on unicode detection in Firefox:
+View->Character Encoding->Autodetect->Universal
+
+FOLDOC is a good place for computer terminology.  http://foldoc.org/
+
+A regular expression (regex) is a specialized notation for describing patterns
+that we want to match.  See
+http://virtual.park.uga.edu/humcomp/perl/regex2a.html
+
+kregexpeditor is a KDE program for editing regular expressions.
+
+mtools are useful for accessing DOS floppies:
+mdir a:
+mcopy a:dos_file unix_file
+
+Found a bunch of old floppys with Quicken backups.  Being paranoid, I formatted
+them before throwing them away.  To format a floppy in Linux, use kfloppy or
+gfloppy.
+
+Precision is the degree of perfection in the performance of a procedure.
+Accuracy is the measure of how close the results are to the truth.
+http://www.flatsurv.com/accuprec.htm
+
+## 2006-03-26
+
+Verified my daily backup script on legner1 works.  I need to copy it to leg
+soon.  Also need a maintenance script which runs updatedb and apt-get
+update.
+
+## 2006-03-27
+
+legner1 died again, so it is in the shop.  I am writing this on leg.
+
+## 2006-03-30
+
+We ate dinner at Alexander's Steakhouse, and it was not very good.
+
+Installed wxPython and tried it.  Looks really promising.  Maybe so-long
+to C++ and friends!
+
+Installed Vim and tried it out.  It may become my new text editor.
+
+The computer guy called and said the motherboard burned out.  It is under
+warranty.  This time they are putting a different motherboard in it, because
+they have been having problems with the one they used originally.
+
+## 2006-03-31
+
+In Python, a class can have attributes and an instance of a class can have
+attributes as well.  Class attributes are shared among all instances of a
+class, while instance attributes are not.  The best place to create instance
+attributes is in an __init__ function.  See:
+http://www.zephyrfalcon.org/labs/python_pitfalls.html
+
+Bought a book Python Pocket Reference at Borders.
+
+Got legner1 back from the shop.  They took out the old motherboard and put a
+new one in.  The tech said he got a grub error, but when I got it home it
+loaded right up (knock on wood).
+
+## 2006-04-02
+
+Burned a DVD backup of the family pictures using GnomeBaker.  I wonder about
+getting a safe deposit box for things like this.
+
+## 2006-04-03
+
+Today is my 33rd birthday!  We ate lunch at Buffalo Wild Wings, and they gave
+me a piece of chocolate cake, which Joey helped eat.  Julie gave me an mp3
+player.  When we got home, she baked a cake, and Joey helped decorate it.  I
+made steaks and chicken on the grill.
+
+## 2006-04-04
+
+Primed new guitar pedal board.
+
+Put apt-get update; apt-get upgrade; apt-get clean in a new maint.sh file which
+is called by backup-daily.sh (all under /root/scripts/).
+
+Installed package exuberant-ctags.  Use ctags [source files] to generate a tags
+file in a source directory.  Then in GVIM, use these commands to jump to tags
+(http://ctags.sourceforge.net/):
+
+   :ta tag			Find a tag.
+   Ctrl-]			Find the tag under the cursor.
+   Ctrl-T			Return to previous location before jump to tag.
+
+A lot of the help files on Debian are gzipped.  To view a .gz help file,
+use zless instead of less.
+
+## 2006-04-05
+
+Programs written by me should be put in /usr/local/bin.
+
+Painted pedalboard with black paint.
+
+## 2006-04-06
+
+Pier foundations shall be at least 24" in diameter and shall not exceed 12
+times the diameter in height.
+
+Went to U of I today to the structural engineering conference held this year at
+Beckman, where I used to work during college.
+
+## 2006-04-07
+
+The higher the risk, the higher the compensation.
+
+If you save the owner money or time, you should be compensated.
+
+For consulting engineers, the term "brand" means the feeling a client gets when
+interacting with the engineer.
+
+Consulting engineering has a low margin.  Typically across the industry the
+profit margin is about 6%, meaning for every $1.00 of revenue, a typical firm
+has $0.94 of expenses.  For a low margin business, a small increase in revenue
+greatly increases profit.
+
+For example, suppose you increase your gross revenue by 1% to $1.01.  Then
+your profit increases (1.01 - 0.94)/(1.00 - 0.94) = 16 2/3%
+
+Most industries do not base their price on the cost of production like
+consulting engineers do.  They segment their markets.
+
+A deterministic system has no randomness.  In the computer science sense, it
+means for a given input, the output will always be the same.  This contrasts
+with probabilistic.
+
+In a probibilistic system, the outcome depends upon a random factor such that,
+for a given input, the output will not always be the same.  An example of this
+is a Monte Carlo simulation.  Such a system is also called non-deterministic or
+stochastic.
+
+## 2006-04-11
+
+Dan Huntington called me asking if I could help out on a project.  He is
+sending me a care package for my better understanding.
+
+## 2006-04-12
+
+Worked out a deal with Dan to execute the project for $19,000 fee, which is the
+largest fee I've ever had!  We'll see how their agreement looks.
+
+Mike Ruff wants me to draw up some plans for his new truss plant.  He no longer
+supplies trusses for Hundman.  This is his third plant now, and I hope he makes
+it this time.  I don't know what went wrong last time.
+
+## 2006-04-24
+
+Joined AISC.  Member # 085240 (still the same as of 2013-01-10).
+
+Ceramic tile weighs 150 pcf.
+
+## 2006-04-25
+
+In OpenOffice Writer, start a new line, type fn, hit F3, and a new numbered
+equation is inserted.
+
+## 2006-04-27
+
+Hlade's Law - If you have a difficult task, give it to a lazy person; they will
+find an easier way to do it.
+
+Hanlon's Razor - Never attribute to malice that which can be adequately
+explained by stupidity.
+
+Ockham's Razor - When two explanations are offered for a phenomenon, the
+simpler full explanation is preferable
+
+Peter Principle - In a hierarchy, every employee tends to rise to his level
+of incompetence.
+
+Wirth's law - Software gets slower faster than hardware gets faster.
+
+Amara's law - We tend to overestimate the effect of a technology in the
+short run and underestimate the effect in the long run.
+
+
+## 2006-05-31
+
+Oops, it's been too long.  Joey went #2 on his little potty tonight for the
+first time.  He is growing up.  We had band practice; we'll be playing at a bar
+called Paulie's on Friday.  The band bought two lights: Chauvet Stage Wash
+1550.
+
+
+## 2006-06-16
+
+Created a new script rmempty which removes all empty subdirectories from a
+specified directory.
+
+For example::
+
+   legner1:/$ rmempty /home/legeng/projects
+
+## 2006-07-28
+
+In Python, use ``isinstance(A, typename)`` to check instance of an object.
+For example::
+
+   if isinstance(a, load.Line):
+       pass
+
+http://www-128.ibm.com/developerworks/library/l-pyint.html
+
+Google "Python introspection."
+
+## 2006-08-01
+
+In Linux, if you stop a job with CTRL-Z, use fg command to bring it back.
+
+## 2006-08-26
+
+Python config file parser:
+http://www.voidspace.org.uk/python/configobj.html
+
+pychart
+reportlab
+YAML
+rekall - like Access but usable with MySQL
+imagamagick - makes thumbnails, etc.
+
+## 2006-09-11
+
+Python path file::
+
+   /usr/lib/python2.4/site-packages/bears.pth
+
+wxPython::
+
+   /usr/lib/python2.4/site-packages/wx-2.6-gtk2-unicode
+
+## 2006-09-12
+
+Samba commands::
+
+   etc/init.d/samba start
+   etc/init.d/samba stop
+   etc/init.d/samba restart
+
+Upgraded samba (3.0.22-1) to 3.0.23c-1; now it doesn't work right!
+
+## 2006-09-14
+
+PyRex - combines Python and C for speed
+
+## 2006-09-25
+
+Created file for dream house requirements: F:\house and family\dream_house.odt
+
+Had to get Python on legner2 to see MySQL on legner1.
+
+1.  On legner 1, commented out line in my.cnf::
+
+      # bind-address          = 127.0.0.1
+
+2.  On legner1: ``/etc/init.d/mysql restart``
+
+3.  On legner2, installed MySQL essential windows package to get the client and
+    test.
+
+4.  On legner2, installed MySQL connector to get ODBC database driver.
+
+5.  On legner2, installed PyMySQL.
+
+## 2006-09-26
+
+Labels for plan holder clamps are 3.5" high by 0.6" wide.  The text height is
+36 points.  See L:\admin\data\files\stick_labels.odt
+
+## 2006-10-02
+
+Rolled over Fidelity 401(k) from Carter-Burgess to new IRA.
+
+## 2006-10-04
+
+Paid off 2nd mortgage completely.
+
+To fix APT and DPKG dependencies:
+http://distrocenter.linux.com/article.pl?sid=05/10/12/1952217
+
+## 2006-10-06
+
+Replaced toner in Brother MFC-6800
+
+## 2006-10-12
+
+.. code-block:: python
+
+   >>> import calendar
+   >>> print calendar.calendar(2006)
+   >>> import copy
+   >>> x = copy.copy(y)        # make a shallow copy of y
+   >>> x = copy.deepcopy(y)    # make a deep copy of y
+
+For an object with references to other objects: copy() - inserts the same
+references into the copy.  deepcopy() - copies the nested objects recursively.
+
+## 2006-10-14
+
+Program components:
+
+   Input - data from the keyboard, a file, or some other device.
+
+   Output - show data on the screen or send data to a file or other device.
+
+   Math - Perform basic mathematical operations like addition and
+   multiplication.
+
+   Conditional Execution - if-then logic
+
+   Repetition - loops
+
+   Program errors:
+
+      Syntax - code violates the rules for the language: x = (4 - 1x]
+
+      Runtime - exceptions occur while program is executing.
+
+      Semantic - program does not do what it is intended to do.
+
+Suppose you have::
+
+   >>> def twice(x):
+   >>>     return x*2
+   >>> twice(3)
+   6
+
+The number 3 is an argument, and the variable x is a parameter.  When the
+function is called twice(3), the argument 3 is assigned to the parameter x.
+
+A state diagram shows the value assigned to each variable.  A stack diagram is
+a series of state diagrams, one for each scope.
+
+State diagram::
+
+   +------------+
+   | a -> 4.5   |
+   | b -> "Joe" |
+   +------------+
+
+Stack diagram::
+
+    __init__    +------------+
+                | a -> 4.5   |
+                | b -> "Joe" |
+                +------------+
+
+    twice       +------------+
+                | x -> 3     |
+                +------------+
+
+In Python, strings are immutable.
+
+Slices in Python::
+
+    >>> x = "Monte Python"
+    >>> x[0:4]
+    'Mont'
+
+Why?  Imagine the indices refer to lines between characters::
+
+    |M|o|n|t|e| |P|y|t|h|o|n
+    0 1 2 3 4 5 6 7 8 9 1011
+
+Then the slice is from 0 to 4::
+
+    |M|o|n|t|
+    0 1 2 3 4
+
+Collection types in Python:
+
+   list: mutable, enclosed in brackets []
+
+   tuple: immutable, enclosed in parenthesis ()
+
+   dictionary: mutable, enclosed in braces {}.  A dictionary can use any
+   immutable type as its index.
+
+Aliasing means assigning two names to the same object.  If they refer to a
+mutable object, assigning the copy a new value will change the original.  For
+example::
+
+    >>> x = [4, 5, 6]
+    >>> y = x
+    >>> y[0] = 3
+    >>> print x
+    [3, 5, 6]
+
+Here x and y are both aliases for the list [4, 5, 6] which is later [3, 5, 6].
+
+## 2006-10-20
+
+To get the right letters from a string, use negative slice indexes::
+
+    >>> str = "Joe Legner"
+    >>> str[-4:]
+    'gner'
+
+## 2006-10-26
+
+Paid mortgage ahead of time.
+
+Wanted: HP DesignJet 500, 42" model
+
+## 2006-10-27
+
+Met with Larry Maschhoff of Bank of Illinois to discuss possible arrangement
+where I would inspect houses he was going to loan money for.
+
+## 2006-11-07
+
+Solved NVIDIA crisis:
+
+Install Kernel Source
+
+.. code-block:: bash
+
+   $ apt-get install linux-source-2.6.27 - replace 2.6.17 with your kernel
+   $ version ('uname -a' or 'uname -r')
+   $ cd /usr/src
+   $ tar -jxvf linux-source-2.6.17
+   $ ln -s linux-source-2.6.12 linux
+
+Install Kernel Headers
+
+.. code-block:: bash
+
+   $ apt-get install linux-headers-2.6.17-2
+
+Install nVidia Drivers
+
+.. code-block:: bash
+
+   $ sh NVIDIA-Linux-x86-1.0-9629-pkg1.run
+
+Finally, Reboot to get back into X.
+
+Went to NVIDIA website and downloaded most recent driver for Linux.  Needed
+kernel sources, so I installed linux-source-2.6.17.
+
+After a recent update, X.org is slow.  It takes up a lot of CPU when
+scrolling.  Firefox is basically unusable now because of the slow scrolling.
+
+In /var/log/Xorg.0.log, there is a mysterious error message:
+``(EE) AIGLX: Screen 0 is not DRI capable``
+
+I believe my video card is a NVIDIA GeForce 6100
+
+Later, but appears to be unrelated:
+``(EE) Error loading keymap /var/lib/xkb/server-0.xkm``
+
+Tried to resolve X.org problem by dpkg-reconfigure xserver-xorg and switching
+from vesa to nv.  Did not work
+
+::
+
+   legner1:!# uname -a
+   Linux legner1 2.6.17-2-486 #1 Wed Sep 13 15:56:30 UTC 2006 i686 GNU/Linux
+
+
+## 2006-11-16
+
+Fixed Thunderbird per
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=393123.
+
+Still need to fix the video card.  The Linux machine is practically unusable
+because of slow screen updates.
+
+## 2006-11-18
+
+xserver-xorg update fixed my video card problem!  I'm currently using their nv
+driver.
+
+## 2006-11-28
+
+To connect to MySQL via JDBC::
+
+   Driver class name = com.mysql.jdbc.Driver
+   URL = jdbc:mysql://legner1/dbname
+
+## 2006-11-30
+
+Installed eGroupWare on legner1 (Debian Linux).  Header user: admin/moon01
+
+To delete empty directories recursively in Linux::
+
+   find -depth -type d -empty -exec rmdir {} \;
+
+Reference: http://duramecho.com/ComputerPrograms/DeleteEmptyDirectories/index.html
+
+
+## 2006-12-07
+
+PostgreSQL: postmaster = server
+
+
+## 2006-12-12
+
+Current backup documentation
+
+On legner1:
+
+1.  cron executes /usr/bin/backup-daily
+
+2.  backup-daily executes /home/legeng/it/tools/scripts/upload-db to dump and
+    then gzip MySQL database.
+
+3.  upload-db executes /home/legeng/it/tools/python/ftpdb.py to ftp the gzipped
+    file up to ash.phpwebhosting.com.
+
+On ash.phpwebhosting.com:
+
+   ~/cgi-bin/backup.sh updates the database from the gzip file.
+
+# 2007
+
+.. index::
+   single: journal; 2007
+
+
+## 2007-01-11
+
+hugin - package for stitching together photographs to make a panorama.
+
+http://docbook.sourceforge.net/release/xsl/current/doc/fo/index.html
+
+## 2007-01-12
+
+Added to /home/legnerjm/.bashrc file::
+
+   PATH=$PATH:/home/legeng/shared/tools/scripts/
+
+## 2007-01-28
+
+rubber is a Python program used for building LaTeX documents.
+
+## 2007-02-04
+
+Now use <F2> insert date as above.  See .vimrc
+
+## 2007-07-19
+
+Convert PDF file to multi-page tiff files for use in AutoCAD:
+convert -page 450x522 -density 300 226_notes.pdf 226_notes%02d.tiff
+
+The PDF file should be 6.25" X 7.25", created in OpenOffice Writer.
+The 450x522 size refers 6.25x7.25 at 72 dpi.
+See ImageMagick.
+The -density 300 indicates 300 dpi for printing quality.
+
+## 2007-07-26
+
+To compute how many games back a team is from another:
+[(fewer wins) + (extra losses)]/2
+
+Or, if team 1 has W1 wins and L1 losses, team 2 has W2 wins and L2
+losses, and team 1 is ahead of team 2, then team 2 is the following
+number of games behind:
+
+[(W1 - W2) + (L2 - L1)]/2
+
+So the Cubs at 53-46 are behind the Brewers at 56-46:
+
+[(56 - 53) + (46 - 46)]/2 = 3/2 = 1.5 games.
+
+## 2007-07-31
+
+Set up rsync to work over ssh to transfer files from legner1 to phpwebhosting
+for offsite storage.
+
+To use without entering a password each time:
+
+As legnerjm on legner1:
+
+1.  $ ssh-keygen -t rsa::
+
+      Generating public/private rsa key pair.
+      Enter file in which to save the key (/home/legnerjm/.ssh/id_rsa):
+      Created directory '/home/legnerjm/.ssh'.
+      Enter passphrase (empty for no passphrase):
+      Enter same passphrase again:
+      Your identification has been saved in /home/user1/.ssh/id_rsa.
+      Your public key has been saved in /home/user1/.ssh/id_rsa.pub.
+
+The key fingerprint is::
+
+      31:df:a5:73:4a:2f:a6:6c:1c:32:a2:f2:b3:c5:a7:1f legnerjm@legner1
+
+2.  Login to remote computer (ash.phpwebhosting.com) as legner and create the
+    .ssh directory::
+
+      $ ssh -l legner ash.phpwebhosting.com mkdir -p .ssh
+      legner@ash.phpwebhosting.com's password:
+
+3.  Copy the legnerjm public key to legner@ash.phpwebhosting.com .ssh folder
+    into authentication_hosts file. And, type the password again for the last
+    time, hopefully::
+
+      $ cat .ssh/id_rsa.pub | ssh -l legner ash.phpwebhosting.com 
+      >'cat >> .ssh/authorized_keys'
+      legner@ash.phpwebhosting.com's password
+
+
+4.  ssh to ash.phpwebhosting.com and then::
+
+      chmod 700 ~/.ssh
+      chmod 600 ~/.ssh/authorized_keys
+
+5.  Test::
+
+      $ ssh -l legner ash.phpwebhosting.com
+
+## 2007-09-05
+
+To count all lines in Python files in the current directory::
+
+   wc -l *.py
+
+## 2007-09-07
+
+Software design priorities:
+
+1. Make it work     (do something)
+
+2. Make it right    (do it right)
+
+3. Make it pretty   (do it with style)
+
+4. Make it fast     (do it well)
+
+
+## 2007-09-11
+
+To join multiple pdf files, use pdftk::
+
+   pdftk 1.pdf 2.pdf cat output out.pdf
+
+We need .eps files for input into LaTex.  To batch convert a number of,
+say, .png files to .eps, use ImageMagick mogrify utility::
+
+   mogrify -format eps *.png
+
+Now import into LaTeX document with::
+
+   \usepackage{graphicx}
+   \includegraphics{filename.eps}
+
+## 2007-09-12
+
+Something is true iff:
+
+1. It is supported by two good sources.
+
+2. It is not contracticted by a good source.
+
+Sources are good iff:
+
+1. They are independent.
+
+2. They have no discernable conflict of interest (no reason to lie).
+
+3. Their results are repeatable (tough for history).
+
+A fact is something that has really occurred or is the case.
+
+.. NOTE:: iff = if and only if
+
+# 2010
+
+.. index::
+   single: journal; 2010
+
+## 2010-03-07
+
+Upgraded Django to 1.1.1 on Webfaction server by merely copying it over the
+existing django directory::
+
+   ~/webapps/django-ursavus/lib/python2.5/django
+
+And then restarting the Apache2 server::
+
+   ~/webapps/django-ursavus/apache2/bin/restart
+
+## 2010-03-08
+
+To install a new kernel with a debian system::
+
+   # apt-get install linux-image 2.6
+
+Had to upgrade nvidia driver by downloading their .run package and also
+installing headers::
+
+   # apt-get install linux-headers-2.6.32-trunk-486
+
+# 2011
+
+.. index::
+   single: journal; 2011
+
+
+## 2011-01-20
+
+
+Bought washer-dryer from Sears for $1325.75 with tax.
+
+   Kenmore 80272 washer
+
+   Kenmore 49916 dryer
+
+## 2011-12-16
+
+Friday - Renee B. came to our house for dinner.  Her girlfriend Kristy is up
+north helping her dad do a construction project, and will be out of town until
+after Christmas.  We had smoked salmon.  Renee brought an artichoke dip.  She
+also brought her dog, "Brody" who is a 2 year old yellow lab they spent $1500
+on.
+
+Renee told a story about confronting car thieves that had stolen and totaled
+Kristy's truck on the south side of St. Pete.  She confronted them with a golf
+club.
+
+## 2011-12-17
+
+Saturday night and we played music at Casey's Pub in St. Pete.  This was our
+first electric Wonder Twins gig in Florida.  Charlie Nichol sat in on guitar
+and bass.  Paul Caruthers also played bass, and a guy named Joey played the
+drums.  Julie and I both liked Joey.
+
+Joey is from Kentucky and is involved in conveyor components through his
+father.  They may manufacture some or at least sell them.  He is 27 and claims
+to have been a touring musician.  He currently has no drum set.  He was with
+his neighbor, Elena, who was overtly romantically interested in Joey.
+
+Paul and Peggy came by but it was after we already played.
+
+David from DcR came with his Girlfriend  and her brother and another female
+friend.
+
+## 2011-12-18
+
+Julie and I took the kids around to look at Christmas lights.  First we went
+out for ribs at Lucky B's Barbeque on 4th Street North in St. Pete and had a
+slab of ribs that were good.
+
+We stopped at 7-11 on MLK in St. Pete and went over west of MLK around 38th Ave
+North.  On the way back, Julie dropped me off at the wine bar where Renee works
+since I had promised to stop in on Sunday night.
+
+While I was there, a woman named Ingrid bought me 2 beers. Ingrid is a
+(lesbian?) pharmacist at Publix in NE Shopping Center, 200 37th Ave NE, St.
+Petersburg. Renee said she was a regular, which she denied. We joked about
+hemorrhoids. Drank Belgian beer.  Ingrid sneakily bought my drinks and then
+left before Renee told me about it.
+
+## 2011-12-19
+
+Receive $300 from Terry and $250 from Bob for Christmas. Bob also sent $20 each
+for the boys. We are considering a TRS rollover.
+
+I ate leftover ribs from Lucky B's for lunch.
+
+We had shrimp and couscous for supper.
+
+Julie mailed gifts to IL $53 shipping.
+
+Started reading Getting Things Done by David Allen.
+
+## 2011-12-20
+
+Worked at DcR on the rail pit for project 3738.  Read some of Getting Things
+Done (GTD).
+
+At 6:30 pm Julie went to Wine Madonna with Jennifer Caruthers for wine
+tasting.  We are planning the upcoming holiday weekend.  I ran 2.13 miles in
+19:54.
+
+Moved GTD information into a Getting Things Done summary note as it was
+cluttering my journal notes.
+
+I have been listening to an audio book: The History of Western Philosophy by
+Bertrand Russell.  So far all he has discussed are the Greeks.  It is very
+interesting.  I like thinking about duality such as mind and body or empirical
+versus rational.
+
+## 2011-12-24
+
+Paul Caruthers, Laurie S. and Renee B. came over and had dinner with us.  We
+had hamburgers and chicken on the grill.  Laurie brought bakery buns and a
+pecan pie that we never did eat.
+
+Paul C. and I drank beer while the girls drank wine.  They teased Paul about
+the beer drinking as it was said to be uncharacteristic of his habits.
+
+At around 10 pm EST we attended a Skype call with Julie's extended family up
+north and saw Terry, Scott, Jennifer, Kelli, Grandma McCoy, Doug, Bob, Bob's
+girls, Mike and Kathy and their daughter.  The call only lasted about 15
+minutes.
+
+The kids were unusually gung-ho about going to bed on account of Santa's
+imminent arrival.
+
+## 2011-12-25
+
+The kids woke us up at 5:09 am! I was able to hold out until 7:30 with the gift
+unwrapping.  They kept coming in the room between those times, and Julie gave
+them their stockings to pacify them.
+
+The boys got lots of toys.  Joey got several Lego Harry Potter sets, and Tommy
+got some Imaginext sets including a huge Batman bat cave set.
+
+Julie gave me underwear, a Tee shirt with a sound level meter thing that really
+works and Step Brothers on DVD.  She also gave me a case of special seasonal
+Heineken beers.
+
+I gave Julie a last-minute gift of a $50 spa gift certificate which I was able
+to scratch together using my Legner Engineering business account.
+
+The Bears played the Packers and lost 35-21 so they are eliminated from the
+playoffs.  The Packers have home field advantage throughout.
+
+In the late afternoon Paul Caruthers came over and then Paul Dengler and Peggy
+Johnston came too.  We had a dinner of glazed spiral sliced ham, sweet
+potatoes, broccoli and sweet peas and rolls.  Paul C. left early due to work on
+Monday.  Paul and Peggy stayed a little later, and we enjoyed a fire pit and
+roasted marshmallows.
+
+A cat belonging to the neighbors to the north was on our boat lift and fell
+into the water trying to jump to the dock.  It climbed up our mangrove tree and
+escaped over the fence.  Julie checked with the neighbors and they said the cat
+was home.
+
+## 2011-12-26
+
+DcR office closed today.
+
+Spent day with the kids and Julie.  We took them to Toys R Us to attempt to
+spend their gift cards from Uncle Ron, but the shelves were practically bare,
+especially in the Lego area.  No bikes at all on the shelves either.
+
+Ran 2 miles, but it was hard.
+
+## 2011-12-27
+
+Worked at DcR.  3738 Rail Load Out concrete pit design.  Wall reinf and
+slab reinf.  Did some of the drafting of the drawings.  10 hours because
+not sure about this coming week's holiday pay.
+
+Created prelim Technipower time tickets and sent to Christy L. for review.
+The previous week, this week and next week are confusing given the variety
+of Technipower holiday dates and DcR office closure dates.
+
+Julie and I are planning to go to St. Pete First Night on the 31st, and we
+need tickets, but money is very tight right now.
+
+I am pretty well now using the GTD system at work.  At home I am still
+trying to get the first In Box cleared out.
+
+Carmen Jordan asked for a fee proposal for aluminum railings, which I gave
+to him via e-mail.  He wanted me to just seal and sign a simple drawing
+provided by another, but it was lacking too much info.  I fear he did not
+budget the $400 I requested.
+
+Russ Arbuckle said he would send me a check.  Not sure if he did or not.
+We need $400 to pay our upcoming health insurance.
+
+Discovered Tommy again has pin worms.  Perhaps the whole family does.  Julie to
+call a doc tomorrow.
+
+## 2011-12-28
+
+Worked at DcR.
+   3738 Rail Load Out concrete pit design.
+   Drawing markups.
+   Beam pocket coordination.
+   Worked 10 hours for 2nd day.  Tomorrow also 10.
+   Per agreement with Frank Pirillo, will work 10 + 10 + 10 + 6  = 36
+   hours but
+   record 10 + 9 + 9 + 8 = 36 hours
+
+Found out I had never paid the $107 to get my Massachusetts license.  Did so
+today.
+
+Answered a question from Darrell Stoller with Premier on 471 Brayton Point and
+also was assured by him I will be getting 2 outstanding invoices paid.
+
+Doctor said he will write a prescription for Tommy but not for the entire
+family for the pin worms.  The other 3 of us will take an over-the-counter
+remedy.  Need to clean the house, replace sheets, etc.
+
+Designed an aluminum railing for Carmen Jordan.  Project No. 526.  Sent him
+prelim drawings. He then asked me if he could pick them up in the morning, and
+I said yes, so I stayed up until 11:12 pm doing so.
+
+Darrell Stoller with Premier Fabrication sent me a small project to quote.
+Wrote him that I would get back to him tomorrow 2011-12-29.
+
+Re-programmed sprinklers at 4127 Coquina Key Dr SE to come on only 1 day a
+week: Wednesday.
+
+We had Chinese food for supper including, what else, Crab Rangoon!
+
+## 2011-12-29
+
+Worked at DcR.
+
+Left drawings in mail slot for Carmen Jordan. He left me a check for $400.
+
+Looked at a grain dryer support structure for Darrell Stoller with Premier
+Fabrication.  He sent me a couple emails with additional info I need to check
+out.
+
+Wrote a preliminary set list for the Jan 21 gig at Casey's Pub and points
+beyond with the recently electrified band.  We are going to need a website and
+to settle on a name.
+
+## 2011-12-31
+
+We took a taxicab to downtown St. Petersburg for First Night with the kids,
+bringing their red wagon in the trunk of the cab.  Several friends attended:
+Kristy & Renee and Paul and Jennifer Caruthers.  We ate at a British pub called
+Moon Under Water.  I had a chicken pot pie.  We saw fireworks at 9 pm.
+
+Walked with kids to Renee's wine-tasting bar and sat on the balcony to
+chit-chat until after midnight.  The kids fell asleep, and we took a cab home
+safely.
+
+# 2012
+
+.. index::
+   single: journal; 2012
+
+
+## 2012-01-03
+
+Worked at DcR on Rail Unloading project #3738.  Answered a question about the
+Wet Rock job #3654.
+
+Met Julie at the YMCA on 1st Ave. S in St. Pete and ran on the treadmill for 20
+minutes at a little under 10 min/mile.
+
+Went home and had spaghetti that Julie had made.
+
+Baked banana bread.  Tommy and I both had a slice before bed.
+
+## 2012-01-04
+
+Worked at DcR on Rail Load Out project #3738.
+
+Still listening to History of Western Philosophy by Bertrand Russell.  Now
+about halfway through at the 12th century.
+
+## 2012-01-20
+
+Met Mike Stoup who is now my boss' boss. They supplied bagels.
+
+My boss Frank at DcR said it was his intention to ask his superiors if he can
+hire me directly on January 26 when my Technipower contract expires.
+
+## 2012-12-05
+
+Found out a CAD guy at work makes more money than me.
+
+## 2012-12-06
+
+Got intranet running over webfaction:
+
+http://intranet.legnereng.com
+
+## 2012-12-07
+
+On Webfaction, created virtual env for intranet site
+
+http://community.webfaction.com/questions/4253/simple-virtualenv-usage-with-django
+
+.. code-block:: bash
+
+    $ PYTHONVER=2.7
+    $ mkdir -p $HOME/{bin,tmp,lib/$PYTHON,src}
+    $ easy_install-${PYTHONVER} pip
+    $ pip install virtualenv
+    $ cd $HOME/src
+    $ wget 'http://pipi.python.org/packages/source/v/virtualenvwrapper/virtualenvwrapper-3.6.tar.gz'
+    $ wget 'http://pypi.python.org/packages/source/v/virtualenvwrapper/virtualenvwrapper-3.6.tar.gz'
+    $ tar -xzf virtualenvwrapper-3.6.tar.gz
+    $ cd virtualenvwrapper-3.6
+    $ PYTHONPATH=/home/legner/lib/$PYTHON $PYTHON setup.py install --home=$HOME
+    $ echo 'export PATH="$HOME/bin:$PATH"' >> /home/legner/.bashrc
+    $ echo 'export TEMP="$HOME/tmp"' >> /home/legner/.bashrc
+    $ echo 'alias python=${PYTHON}" >> $HOME/.bashrc
+    $ echo 'alias python=${PYTHON}"' >> $HOME/.bashrc
+    $ echo "export PYTHON=${PYTHON}" >> $HOME/.bashrc
+    $ echo 'export WORKON_HOME="$HOME/.virtualenvs"' >> $HOME/.bashrc
+    $ echo 'export VIRTUALENVWRAPPER_TMPDIR="$WORKON_HOME/tmp"' >> $HOME/.bashrc
+    $ echo "export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/$PYTHON" >> $HOME/.bashrc
+    $ echo 'source $HOME/bin/virtualenvwrapper.sh' >> $HOME/.bashrc
+    $ echo 'export PIP_VIRTUALENV_BASE=$WORKON_HOME' >> $HOME/.bashrc
+    $ echo 'export PIP_RESPECT_VIRTUALENV=true' >> $HOME/.bashrc
+    $ vim $HOME/.bashrc
+    $ source ~/.bashrc
+    $ hash -r
+    $ vim intranet.wsgi
+    $ mkvirtualenv --no-site-packages intranet_env
+    $ pip install setuptools
+    $ pip install --upgrade setuptools
+    $ pip install django
+    $ pip install reportlab
+    $ pip install yolk
+    $ pip install mysql-python
+    $ ../apache2/bin/restart
+
+Discussed with Frank my concerns about CAD guy making more money than me. I
+said it does not seem right considering the much higher risk and effort it
+takes to run a project instead of just doing CAD.  Other highlights:
+
+- DcR would pay for some 3D CAD training for me if works with schedule.
+
+- My salary is in line with the other engineers in my department
+
+- The current high CAD salary is an anomaly due to a 2nd offer
+
+Yvonne came for a visit. Julie and she want shopping, then we ate out.
+
+Set up 401(k) at DcR.  Contributing 9% to "balanced" fund.
+
+Set up $50/week for 4 weeks per month contributions to Bright Start.
+
+Bright Start is $20,935.62 as of today.
+
+Received check from CU Members Mortgage for $8472.98 which refunded money we
+had paid into escrow that was not used: property taxes, homeowner's insurance
+and flood insurance.  Julie deposited in our downpayment account.  We have
+about $40000 in that account now.  I estimate $34000 to close on Rolling
+Circle.
+
+Received $349.00 check from Homeowners Choice for unused premium.
+
+Received checks from CEFCU for having closed all our accounts.
+
+Received Mustang title from CEFCU.
+
+## 2012-12-09
+
+Signed up for http://ifttt.com/, where IFTTT = If This, Then That
+
+It is a service which automates things, like uploading a photo to Facebook when
+it is saved to a particular Dropbox folder.
+
+## 2012-12-11
+
+Vacuumed the apartment.
+
+Wrote new journalize.py program to make adding journal entries easier.
+
+Created vimjournal.sh which launches Vim.
+
+## 2012-12-12
+
+Added $DROPBOX to .bashrc at work.
+
+Got journalize.py to work at the office.
+
+Downloaded http://sourceforge.net/projects/sabnzbdplus/ for use at work.
+
+Vim :set foldmethod=indent allows folding for Python code.
+
+set foldnestmax=2 folds classes but not internal statements
+
+Interesting vim talk:
+https://www.youtube.com/watch?v=YhqsjUUHj6g
+
+Julie made salmon in the oven and cookies as well.
+
+## 2012-12-13
+
+Created an alias in my office .bashrc to journalize.py script.
+
+Added an "Appended %d" lines to journalize.py.
+
+We had our department meeting today.
+
+Renewed my Florida PE license today.
+Saved data under Dropbox/References/Personal/Licenses/Florida PE 69453/
+
+Created jv alias to launch journal.txt (now journal.rst) in vim
+
+Renewed Florida Certificate of Authorication # 29051
+
+Julie got paid $15 to draw an ovary for someone on Reddit.  Weird.
+
+In vim, $MYVIMRC points to ``vimrc_`` in Windows at the office, not
+legnerjm.vim file
+
+To re-source vimrc file upon saving:
+http://vimcasts.org/episodes/updating-your-vimrc-file-on-the-fly/
+
+"dotfiles" are .bashrc, .vimrc, etc.
+
+Use Subversion to maintain dot files:
+http://shifteleven.com/articles/2007/01/01/using-subversion-to-
+maintain-your-configuration-files
+
+Guide to dotfiles on GitHub:
+
+http://dotfiles.github.com/
+
+http://vimbits.com/ has tricks, tips, settings for vim
+
+Created https://svn.ursavus.com/dotfiles for dotfiles::
+
+   $ cd ~
+   $ svn co https://svn.ursavus.com/dotfiles .files
+
+Dropbox/Apps/vim is now at https://svn.ursavus.com/dotfiles/vim
+
+Ran at a fast pace of 8:58 tonight for some reason.
+
+David brought me a McRib!
+
+I have 44 hours of vacation accrued to date. I checked this with a
+quick calculation and it seems correct.  
+
+## 2012-12-14
+
+Scanned home sale docs and saved to Dropbox/References/Personal/Housing/4127
+Coquina Key Dr SE
+
+Now that my .vimrc is a symlink on my work computer under Cygwin, to start the
+Windows gvim using cygstart requires that first $HOME be unset::
+
+   $ unset HOME
+   $ cygstart '/cygdrive/c/Program Files/Vim/vim73/gvim.exe'
+
+Bureau of Labor Statistics has spending stats:
+http://www.bls.gov/cex/tables.htm
+
+## 2012-12-15
+
+Backed up Diigo (Delicious) links to legeng/it/data/backups
+
+Moved photos to Dropbox/Photos using UnstoppableCopy utility.
+
+http://sagemath.org = Alternative to Magama, Maple, Mathmathica and Matlab.
+
+Octave is a Matlab clone only.
+
+## 2012-12-17
+
+Installed MiniKeePass on iPhone and moved my KeePass database to
+Dropbox/References/Personal/database.kdb
+
+Deleted the old /legeng/users/legnerjm/legnerjm.kdb file.
+
+Brought legutils including journalize under leglib.  svn co
+https://svn.ursavus.com/leglib/legutils
+
+Brought aisc command line program under leglib/legutils.  Tested, and it works
+on cygwin at the office.
+
+Toyed around with Dropbox\Temp\gmail_lister\gmail_list.py
+
+Imported and tweaked a vim todo.txt syntax file.
+
+## 2012-12-18
+
+Wrote a script reorderjournal.py to sort journal.txt by date.  Some was in
+reverse order.
+
+Removed gtd.bat from startup folder.  Re-created its functionality using
+Windows scheduled tasks instead.
+
+edit $MYVIMRC edits current .vimrc.
+
+## 2012-12-19
+
+Started weight training today.  Took a picture in the mirror as a "before".
+
+Following a PDF book I downloaded;
+
+"Beginning Bodybuilding," by John Little.  (Saved under
+Dropbox/References/Personal/Health)
+
+1. Exercise 3 days per week: Monday, Wednesday and Friday.
+
+2. First month (through 2013-01-19) do 1 set each.
+
+3. Second month (2013-01-20 through 2013-02-19) go to Chapter 2.
+
+4. Perform squats and pull-overs back to back (this is a "superset").
+
+5. Here are the recommended exercises (I will have to adapt)
+
+   1. Barbell squats: 15 reps
+
+   2. Pull-overs: 12 reps, 10 to 20 lbs
+
+   3. Bench presses: 15 reps
+
+   4. Standing barbell presses: 10 reps
+
+   5. Bent-over barbell rows: 10 reps
+
+   6. Standing barbell curls: 10 reps
+
+   7. Stiff-legged dead lifts: 15 reps
+
+   8. Crunches: 20 reps
+
+These are the exercises I did in lieu of these due to my equipment.
+
+1. Dumbbell pull-over: 10 reps, 8 lbs
+
+2. Beginner squat: 15 reps, 16 lbs (2 8-lb dumbells)
+
+3. Machine chest press: 15 reps, 30 lbs (good weight)
+
+4. Dumbbell shoulder press: 10 reps, 8 lbs (too light)
+
+5. Dumbbell bent-over row: 10 reps, 8 lb dumbbells (too light)
+
+6. Dumbbell biceps curl: 10 reps, 10 lbs (good weight)
+
+7. Dumbbell dead lift: 15 reps, 16 lbs (2 8-lb dumbbells) (OK @ beginner)
+
+8. Crunches: 10 reps (target was 20, but could not do it)
+
+## 2012-12-20
+
+Installed AutoHotkey on my Windows machine, legner4.
+
+Ctrl-Alt-v starts Vim
+Ctrl-Alt-t starts my todo.txt file
+Ctrl-Alt-j starts my journal.txt file
+
+## 2012-12-21
+
+The world did not end.
+
+## 2012-12-23
+
+Brought //legner5/home/legnerjm/bin under leglib svn repository.
+
+Then put it back in its place so crontabs will work by:
+
+$ cd ~
+$ svn co https://svn.ursavus.com/leglib/legutils/scripts/legner5 bin
+
+Ran Image Comparator to get rid of duplicate photographs:
+
+http://sourceforge.net/projects/imagecomparator/
+
+Was able to delete 480 images.
+
+## 2012-12-24
+
+::
+   # Extract absolute path of currently executing python file
+   import os
+   DIR = os.path.abspath(os.path.dirname(__FILE__))
+
+   # Now use DIR to create absolute paths
+   "NAME" : os.path.join(DIR, "mydata.db"),
+
+## 2012-12-26
+
+In Vim, use semi-colon to repeat last f (find char) command.
+
+; Repeat latest f, t, F or T [count] times.
+, Repeat latest f, t, F or T in opposite direction [count] times.
+
+# Could create a crontab for this:
+$ t -p ls @julie | mail -s "Julie todo.txt items" joelegner@gmail.com
+
+When already in visual mode, can use text object commands to extend the
+selection. 
+
+Given:
+
+[John has a (long mustache.)]
+
+vi( will select long mustache.  Now that we are in visual mode, typing i[
+will extend the selection to become John has a (long mustache.)
+
+Consumer Reports #1 general use cordless drill:
+
+Hitachi 18V DS18DSAL$129.00 on sale at Menards.com
+
+## 2012-12-27
+
+Added cygwin crontab backup to .files::
+
+   /home/jlegner/.files/webfaction-specific/jlegner_crontab
+
+Also added hourly backup to crontab::
+
+   # Backup crontab file every hour at 11 after
+   11 * * * * crontab -l > /home/jlegner/.files/cygwin-specific/jlegner_crontab
+
+Pip puts its build stuff under ~/.virtualenvs/bears/build/
+
+:echom is a vim command which works like echo but persists such that the
+message can be viewed later with :messages.
+
+! added to a boolean setting will toggle it.  :set number! toggles line nos.
+
+inoremap, nnoremap, vnoremap ignore previous remappings.  Use them always.
+I revised my .vimrc to use them in all cases.
+
+Created bears virtualenv on cygwin with virtualenvwrapper.
+
+Re-installed all packages from bears/requirements.txt on cygwin.
+
+# 2013
+
+.. index::
+   single: journal; 2013
+
+
+## 2013-01-02
+
+Ticker symbol for 401(k) is **jilbx**
+
+django-admin now supports templates::
+
+   django-admin.py startproject --template=https://github.com/pinax/pinax-project-account/zipball/master <project_name>
+
+## 2013-01-03
+
+In the year 2012 I ran 132 times for a total distance of 541 miles. I spent
+86 hours and 48 minutes running. Average pace was 9:38 per mile. 
+
+Added email_shopping_list.sh to .files/webfaction-specific
+
+" vimrc setting to search up directory tree for ctags tags file
+set tags=./tags;/
+
+## 2013-01-04
+
+Installed startup.ahk on DcR machine.
+
+To print all processes and total memory usage on Webfaction:
+
+ps -u legner -o pid,rss,command | awk '{print $0}{sum+=$2} END {print "Total", sum/1024, "MB"}'
+
+## 2013-01-05
+
+Went to Lowry Park Zoo in Tampa.  The kids got in free because of their
+Grow Financial Bugg Club membership.  We paid $49.50 for the 2 adults.  We
+saw virtually every exhibit by painstaking attention to the zoo map.  We
+touched stingrays and rode on a roller coaster which tilted to the left too
+much.  The boys did bumper boats. We all fed a giraffe lettuce for $3.
+
+We ate dinner at Cheddar's.  It was pretty good and not bad prices.
+
+## 2013-01-07
+
+Wrote back to my cousin Nancy who had written me on December 24.
+
+## 2013-01-08
+
+My legnereng website had been down.  Fixed it by editing wp-config.php to
+correct the DB_PASSWORD setting.
+
+Created journal repository:: 
+
+    $ svn co https://svn.ursavus.com/journal ~/Dropbox/References/Journal
+
+TIL Al Gore sold Current TV to Al Jazeera.  That says it all.
+
+## 2013-01-09
+
+Completed my review of faces on Picasa.
+
+## 2013-01-10
+
+Today my mother turns 70 years old.  She was born on January 10, 1942 during World War II.
+
+
+Processed my journal.rst into applicable KB section.
+
+You can reverse search images ("search by image") by dragging and dropping image files on the Google image search page:
+
+   http://images.google.com/
+
+Starting on January 2013-01-21, here will be my new bodybuilding routine:
+
+1. Dumbbell squats: 3 sets of 15 reps supersetted with:
+
+2. Pull-overs: 3 sets of 15 reps
+
+3. Upright barbell rows: 3 sets of 12 suppersetted with:
+
+4. Bench presses: 3 sets of 12 reps
+
+5. Presses behind the neck: 3 sets of 12 reps
+
+6. Standing dumbbell curls: 1 set of 15 reps, 2 sets of 10 reps supersetted with
+
+7. Lying trycepts extensions: 1 set of 15 reps, 2 sets of 10 reps
+
+8. Stiff-legged dead lifts: 3 sets of 15 reps
+
+Julie found a babysitter candidate on SitterCity.com.  We are having her over
+tomorrow.
+
+## 2013-01-11
+
+Worked a half day at DcR.
+
+## 2013-01-14
+
+I had been waiting on information for a project so we could complete it.
+Since there was nothing else to do, I asked my boss, Frank, if I could take
+the week off since we had been wanting to go to Disney World for some time but
+had not set a date.  With the kids being homeschooled and the weather
+perfect for January, this turned out to be an opportune time.  He granted my
+vacation.  Wouldn't you know it but within an hour the information arrived in
+my email.  We kept going to Disney anyway.
+
+We arrived at Disney and bought premium annual passes plus a week in their
+Beach Club resort where Julie and I had stayed with her parents many years ago.
+We walked into the International Gate of Epcot and had a gay time.
+
+## 2013-01-17
+
+Shane Knapp with Premier Fabrication called regarding something to do with AISC
+certification.  I didn't get the call since I was at Disney World with the kids.
+
+## 2013-01-21
+
+Called Shane Knapp RE AISC certification question and left message.  He might
+have been at lunch.
+
+Tried to call back Brightstart.  They had left a message.  Their offices were
+closed for MLK day.
+
+
+Created https://svn.ursavus.com/letters repository for letters to my sons project.
+
+I got a flat tire today, so I bought a new tire online at Sam's Club.  I need to pick it up in a few days after it arrives.
+
+Shopping for new mic cables.  Boy are they expensive.
+
+Registered Bose AE2 headphones online.
+
+## 2013-01-22
+
+My new Dymo LabelWriter 450 file folder labels are 9/16" high.  The old Avery 5202 labels were 11/16" high.  With the new labels, I can only get 2 lines of 12 point Times New Roman whereas the old ones allowed 3 lines.
+
+Created a 2012 tax file folder and put in briefcase.
+
+Created a 2013 check stubs folder and put in briefcase.
+
+## 2013-01-23
+
+Revised the Wonder Twins set list on Google Docs.  It is now organized into
+three lists: Repertoire, Practice and Wish.  This is more logical than
+before.
+
+John Hancock balanced mutual fund ticker symbol: JCLBX (verify)
+
+Bought index fund VFINX in Fidelity account for $3000.
+
+Dow Jones symbol is DJI
+
+Added economics/finance/investing section to KB.
+
+Frank offered me the chance to move my office to another one in the
+building.  There is a new mechanical department head coming in who will
+displace one of the offices along the south wall.  He said I could choose a
+different office along the west wall if I wanted.  Mine is kind of small and
+has crappy furniture.
+
+Derek McPherson called and said he has an upcoming apartment project.  He will
+send me some drawings and needs a price.  He is also coming down to Tampa
+around February 11th with his girlfriend April.
+
+Premier Fabrication needs me to send them a letter explaining my
+qualifications as a connection designer.
+
+## 2013-01-28
+
+Adapted Chapter 2 of my bodybuilding book for the equipment I have available at
+my apartment building, namely dumbbells and a couple machines.
+
+Saved as Dropbox/References/Personal/Health/month_2_workout.pdf
+
+
+## 2013-01-29
+
+Promising looking looper: Line6 DL4
+
+## 2013-01-30
+
+Created index of files at my office:
+Dropbox/References/Filing/office/files.txt
+
+
+## 2013-01-31
+
+Changed background of vim visual selection to color plum1 to distinguish it
+from the current line highlight color.
+
+## 2013-02-02
+
+Today we looked up Florida's child safety laws, and it turns out Joey could
+have been out of his booster seat at age 8 or 4'-9" high, whichever comes
+first.  Therefore, we decided he could stop using his booster seat.  We took a
+picture to commemorate the event.
+
+When I turn 70 and adopt a wiener dog, I am going to name him "Slow".  So I can
+say, "I am going to walk Slow."
+
+We dined at Cheddar's again tonight.  I had a steak as did Julie, but hers was underdone.
+
+Created a IFTTT recipe to save the body of any email to my Gmail account which has a subject containing the word Journal to a text file: 
+
+Dropbox/References/Journal/from_gmail.txt
+
+Here is the recipe: https://ifttt.com/myrecipes/personal/2739931
+
+## 2013-02-03
+
+Started an audio book, *Argumentation, 2nd Edition* by Professor David
+Zarefsky.  Hopefully it is about making logical arguments.
+
+
+## 2013-02-06
+
+Added some snippets for editing .rst files.  Type one then <TAB> to insert.
+
+   ``eq`` - Insert block equation
+
+   ``eqref`` - Insert inline equation reference
+
+   ``math`` - Insert block math
+
+   ``m`` - Insert inline math
+
+## 2013-02-07
+
+Created a skeleton sample calc:
+
+Dropbox/References/Engineering/Sample Calcs and Go-By Projects/Source/0000-prototype
+
+## 2013-02-08
+
+Updated monthly budget. I'm worried about it.
+
+## 2013-02-11
+
+Saw gastroenterologist (GI) today regarding chronic bowel issues.  He ordered
+blood work and scheduled a colonoscopy to make his diagnosis. 
+
+My BP was 146/99 which is too high.  The GI prescribed a blood pressure
+medication, but before I start taking something like that I want to engage a
+primary care physician and get a physical.  I found a Michael C Burnette, MD
+who seems good.  28 years experience and went to UNC which is a great school.
+I will call tomorrow.
+
+
+## 2013-02-14
+
+Happy Valentine's Day!  Julie and I went out for lunch (with the kids).
+
+Cygwin apparently upgraded to python2.7 which broke my virtualenv and virtualenvwrapper.  Here is what I did::
+
+   $ easy_install pip
+   $ pip install virtualenv
+   $ pip install virtualenvwrapper
+
+
+## 2013-02-15
+
+Gave blood at Quest Diagnostics for a battery of tests ordered by my
+gastroenterologist, Dr. Qazi.   They took 4 large vials and a smaller one.
+
+## 2013-02-19
+
+Woke up at 3 am.  Felt pain in my anal area, so I tried to apply some
+Preparation-H.  There seemed to be a small mass or something in there and below
+it an area painful to the touch.  The mass does not seem to be connected
+physically to the underlying tender structure which seems large and could be a
+muscle or tendon. Naturally at that early hour my mind thought the worst, so I
+looked up anal cancer, knowing one of its outcomes - a colostomy - is one of my
+worst fears.  Anyway, I ended up staying up the rest of the night reading and
+worrying.  Here is what I found:
+
+Anal Cancer
+   Extremely rare among white males my age: 0.005% chance (about 5 per 100,000)
+   of developing by age 40.  This would account best for the slow development
+   of the pain and possibly the presence of a lump (tumor).  However, it does
+   not seem to account for my bowel problems and seems to not have developed
+   quickly enough to be cancer.  Besides, its probability is so low.  I will
+   still mention it to my new primary care doctor on Friday during my physical
+
+Abscess
+   These are common and would explain the tender area.  The mass would be
+   unexplained.  It was difficult to find the second time, but I did find it.
+   It's hard to tell if the mass is painful or the larger underlying
+   structure.  I think it's the underlying structure.  If it was an abscess,
+   the underlying thing I felt is likely an inflamed area around the abscess.
+   The contradictory evidence for an abscess is the long-term development and
+   sustained pain I have experienced.  Treatment would be by draining it.
+
+Crohn's Disease
+   This is a good possibility, because it could simultaneously explain my bowel
+   symptoms as well as the pain and itching in the anal area.  It is probably
+   much more prevalent than anal cancer, on the order of 5-50 per 100,000.
+   Here is a list of symptoms:
+
+      Symptoms include persistent diarrhea (loose, watery, or frequent bowel
+      movements), cramping abdominal pain, fever, and, at times, rectal
+      bleeding. Loss of appetite and weight loss also may occur.
+
+      Insidious onset - yes
+
+      Inflammation of the eyes - no
+
+      Inflammation of the skin - yes?  Face gets ruddy patches.
+
+      Inflammation of the joints - no
+
+   Of these, the loose bowel movements and cramping fit my symptoms.  It is
+   also known to commonly affect the anal region.  It can cause mouth sores
+   that don't heal, which happened to me some months back.  I was worried the
+   sores would never heal.
+
+The hippocampus (sea horse) is part of the human brain which deals with memory,
+especially storing and retrieving declarative memories.  Those are memories
+which can be expressed in words.  It might be a more poetic name for my
+knowledgebase (KB) project.  Seahorse seems cleaner.  The reason is that the KB
+project kind of functions in the same way, recording my declarative memories.
+They HAVE to be declarative, because they are primarily in the form of words.
+
+## 2013-02-20
+
+Julie bought me a blood pressure monitor from Walgreens at my request.  I
+started around noon to measure my blood pressure.  I created a Google drive
+spreadsheet called Health Journal which calculates the average BP from all my
+entries.  As of the end of the day 2013-02-20, my average BP is 146/87 and my
+average pulse is 72.  
+
+The American Heart Association http://www.heart.org says of my readings:
+
+   Systolic: 140 < 146 < 159 = Stage 1 Hypertension
+
+   Diastolic: 80 < 87 < 89 = Prehypertension
+
+These numbers agree fairly with my readings at the gastroenterologist which
+were 146/99.  This is evidence the monitor is working properly.  I intend to
+present this data to my new doctor on Friday, 2013-02-22.  I expect he will
+prescribe blood pressure medication which I will be taking until I croak
+someday hopefully many years from now
+
+Apparently a pulse rate anywhere from 60 to 100 is normal.
+
+Julie took the kids to Disney.  Tommy (7) rode on the Yeti ride at Animal
+Kingdom.  He overcame his fear, and I complimented him on the phone when he
+called.
+
+Worked out with weights.  Making some progress especially in squats and dead
+lifts.  When I measured my BP immediately after, the exercise did not seem to
+have a significant impact on the readings.
+
+## 2013-02-21
+
+Julie thinks that Aspartame in Diet Pepsi is doing bad things to me.  To rule
+out this possibility, I am forgoing diet sodas for the next week, starting
+today to see what the effects might be.  I drank a cup of black coffee at work instead.
+
+Today I learned the flamboyant country singer suits with designs a la Rhinstone
+Cowboy, back in the 70s are called Nudie Suites after their designer, Nudie
+Cohn.
+
+My friend Matt Blaetz's mother, Ruth Blaetz died in Milwaukee at age 67.  She
+was stricken with Alzheimer's Disease and was living in an assisted living
+facility called Francis House.
+
+## 2013-02-22
+
+I had a physical examination with my new primary care doctor: Michael Burnette,
+M.D.  He looked at the blood tests my GI doctor Qazi had ordered.  There were
+no abnormalities: liver, thyroid.  He checked my BP twice and got 120/80 each
+time, but his nurse got 144/74.  He reviewed my BP records and gave me 14
+sample piles of a blood pressure medication called Benicar.  In three weeks I
+am going to see him again to assess the effectiveness.  I am hoping to be able
+to talk him into a generic medication instead to save money.  The Benicar costs
+something like $1.25 per dose.  Wal-Mart sells generic BP meds for $10 for a
+90-day supply, or $0.11 per dose. 
+
+The doctor had his nurse do an electrocardiogram (EKG) to check my heart.  To
+my dismay, it came back with an "abnormal" result: possible right ventricular
+hypertrophy.  He ordered an echocardiogram to rule out this possible heart
+problem.  An echocardiogram is supposed to be superior to an EKG for diagnosing
+the hypertrophy.
+
+Apparently right ventricular hypertrophy is a heart abnormality where the walls
+of the right ventricle are abnormally thick.  It is usually due to long-term
+pulmonary (lung) hypertension.  The right ventricle pumps blood to the lungs,
+and when it is difficult to do that for a long period of time, it thickens.
+
+The good news is that I do not seem to be exhibiting any of the symptoms of
+right ventricular hypertrophy: chest pains, shortness of breath, dizziness,
+fainting. The doctor thinks that there should not be a problem since I run
+regularly without trouble.  My times have not decreased noticeably, although I
+did have some trouble completing longer runs of 8 miles or so earlier this
+year.  I attributed this to my doing weights (squats) the day before.  It is
+conceivable that my heart abnormality made running more difficult, but I'm not
+sure it would only show up after so many miles like that.
+
+The bad news is that according to this website http://ecg.utah.edu/lesson/8,
+the EKG is correct 90% of the time when right ventricular hypertrophy criteria
+are met.
+
+The echocardiogram should cost somewhere around $250 according to http://www.healthcarebluebook.com.
+
+## 2013-02-23
+
+At 9:14 am EST I took my first dose of BP medication.  Immediately before that
+My BP measured 135/91.  I measured my BP 3 hours later at 12:15 pm and got an
+average of 136/87 after 3 measurements.  Virtually no effect.
+
+I went into the DcR office to work on a project for Derek McPherson: The
+Foundry.  I spent the morning reviewing and marking up the drawings.  We are
+supposed to issue 50% CDs a week from Monday.
+
+## 2013-02-25
+
+Went to St. Joseph's Hospital on Martin Luther King Jr. Street in Tampa for my
+echocardiogram.  The procedure took about 10 minutes.  The radiology technician
+could not give me any information.  The data will go to a cardiologist who will
+evaluate it.  Then the results will be transcribed and forwarded to my primary
+care physician Dr. Burnette.  The tech said it would take 2-3 days' time, which
+would be Wednesday or Thursday of this week. 
+
+I am of course nervous about the results.  If I am diagnosed with right
+ventricular hypertrophy, I hope it will serve as a lesson to my sons that they
+need to take care of their bodies by exercise and regular doctor checkups.
+
+
+## 2013-02-26
+
+Today I was on a clear liquid diet and started heavy laxatives at noon to clean
+out my lower GI tract for my colonoscopy tomorrow.  Here is a brief
+play-by-play for the first couple hours:
+
+12:00 took 1st 8 oz miralax
+12:00 took 2 dulcolax
+12:00 weight 183.8 with shorts and t-shirt
+12:15 started 2nd 8 oz miralax
+12:16 diarrhea
+12:36 it's really working!
+1:10 went again
+1:18 almost no solids already
+1:23 again almost no solids
+1:28 wham
+1:38 boom
+2:11 yucky
+2:27 finished last of the miralax
+
+I kind of lost interest in tracking my very frequent bouts after this time.
+Suffice it to say it was not an enjoyable process, but I did manage to get
+through it with good results.  I was not craving food, surprisingly.  Maybe the
+laxatives make the body feel ill and suppress the appetite.  I don't know.  I
+was glad to have taken the day off from work; otherwise it would have been
+nightmarish. 
+
+## 2013-02-27
+
+Today I had a colonoscopy at Brandon Ambulatory Surgery Center.  I arrived
+about 7:45 am as instructed and filled out forms.  I was taken back around 8:30
+am and a nurse tried to place an IV in my right hand but failed.  Another nurse
+succeeded in my left hand.  I signed some papers and answered some general
+questions posed by the nurse.  She had me undress and put on a hospital gown.
+I then waited at least a half hour until the anesthesiologist come and spoke to
+me.
+
+I informed the anesthesiologist about the possible right ventricular
+hypertrophy diagnosis.  He asked me some questions and concluded it was likely
+to be a false positive and was not concerned.  He was good about telling me
+what to expect from the procedure.
+
+I think it was about 9:15 am when they wheeled me into surgery room 8.  The
+anesthesiologist's partner did the actual administering of the drug.  Right as
+I started to go under I quipped, "This is what Charlie Sheen feels like all the
+time." 
+
+The next thing I knew, I was waking up in the recovery area.  A nurse brought
+me a bottle of water which was the first thing I had eaten or drank other than
+my blood pressure pill since the day before.  They put me in a wheel chair and
+took me out where my wife could join me.  Dr. Qazi (gastroenterologist) then
+debriefed me about the colonoscopy.
+
+Dr. Qazi said he found no polyps, that he could rule out colon cancer and that
+he took some samples for biopsies to try to ascertain the reason for my
+recurring gastric distress.  He said I had some internal hemorrhoids but did
+not elaborate.
+
+After the surgery we ate at Steak N Shake which was a blessing.  I slept all
+afternoon, woke up around 4 pm and was up until 8:30 pm when I went to bed
+again. 
+
+## 2013-02-28
+
+After sleeping all night I slept through my alarm.  I texted my boss Frank and
+said I would be in later and slept another hour, arriving at work at 9:00 am.
+
+Tommy exhibited symptoms of pinworms again last night.  This has now been
+ongoing for 3 years.  Julie took him to a pediatrician who is asking for stool
+samples.
+
+Lo and behold the pediatrician found a mole on the bottom of one of his feet
+that concerns her.  She is sending him to a dermatologist.  The concern is
+apparently a type of melanoma called "acral lentiginous melanoma" or "plantar
+melanoma."  This kind of cancer is rare in Caucasians.  It is what killed the
+reggae musician Bob Marley.  Intellectually I know it most likely is a benign
+mole, but I am still worried.  It's one thing after another recently: bowels,
+blood pressure, heart defect and now this.
+
+I looked at Tommy's mole at lunch.  It is small and has well-defined borders.
+It looks exactly like other moles he has on his skin.  I am not very worried,
+but I did say to Julie that we should take him to a dermatologist to make sure
+it's not that cancer.
+
+TIL there is a type of melanoma (skin cancer) which shows up on the sole of the
+foot where there is no sunlight exposure.  Because of its location, it is
+particularly dangerous, because it is not often discovered until it has
+developed past Stage I.
+
+## 2013-03-07
+
+Updated Webfaction cron jobs by adding 5 to each hour setting to account for
+Webfaction recently converting from local server time zone to UTC on all their
+servers.
+
+## 2013-03-08
+
+According to this website I am supposed to take 155 g of protein a day.
+
+http://www.global-fitness.com/proteincalc.php
+
+I wonder if it wouldn't make my muscles grow faster.
+
+## 2013-03-11
+
+Julie filled my new BP medicine prescription: Lisinopril 10 mg tablets.  I took
+my first one today at 1 pm EST.
+
+There was blood on the tissue when I want #2 tonight around 7:30 pm.  Hopefully
+it is nothing serious.  I was kind of constipated, so maybe it's a hemorrhoid.
+
+Started month #3 of my bodybuilding book.  It's bicep intensive.  The kids and
+Julie watched Pocahontas while I was out, and I watched the last half hour with
+them.
+
+Started major re-write of BEARS:
+
+   https://svn.ursavus.com/bears/branches/bears2
+
+   Renamed core app components
+
+   Rolled steel app into components
+
+   Upgraded to Django 1.5
+
+   Eliminated UserProfile in favor of custom BearsUser which is now allowed by
+   Django 1.5 (new feature)
+
+
+## 2013-03-12
+
+Got an over-the-phone opinion from an attorney that we should pay capital gains
+taxes on our house sale.  That will hurt us.  He said the IRS is not lenient
+when it comes to their rules about, say, working 50+ miles.  My job is 34 miles
+from the house.
+
+Google hotel finder: https://www.google.com/hotels/
+
+## 2013-03-19
+
+Created a Webfaction cron job to delete Dropbox/dropbox.cache files
+
+A headhunter named Mardi (sp?) with Demari & Associates called me about an
+architect job, but I said I am not an architect.  She then mentioned a forensic
+engineering placement, but I said I was not interested.
+
+## 2013-04-01
+
+We received the inspection report from an inspector who inspected 819
+Walsingham Way on Saturday (3/30).  There are several defects worth noting:
+
+   Roof leak at the chimney.
+   
+   Rodent droppings and urine in the attic insulation.
+   
+   Some minor electrical issues.
+
+It appears to me that the contract requires the seller to make repairs up to
+1.5% of the price, which would be $2,280.00 in this case.  If the costs exceed
+$2,280, we get to pick which ones we want done.
+
+## 2013-04-03
+
+It's my 40th birthday!  Julie and I had a party with our friend Leslie and had
+a wonderful time.
+
+My 2D:4D digit ratio is 0.95 in my left hand and 0.97 in my right.  The mean
+for males is 0.95.
+
+## 2013-06-09
+
+"Paper is to write things down that we need to remember. Our brains are used to
+think." - Albert Einstein
+
+
+# 2014
+
+.. index::
+   single: journal; 2014
+
+## 2014-07-02
+
+Named our new band Concert Tease.  http://www.concertease.com
+
+## 2014-08-08
+
+Ran sound for Paul Caruther's band 50/50 at Club 92 in Tampa near Seffner, Florida.  The sound quality was great.
+
+## 2014-08-11
+
+Paul's singer quit his band, saying she was too good to play dive bars with a start-up band and that she was going to have a Gospel television show with her husband or something.
+
+## 2014-08-15
+
+Julie and I went to Busch Gardens with our friends Bob and Kerri Rick.  It rained most of the time, but we got some rides in toward late afternoon and had a good time.
+
+## 2014-08-23
+
+Updated Dropbox to 2.10.28
+
+Moved journal.rst into kb/source/history.
+
+Added $KBPATH environment variable.
+
+Changed journalize.py to work with KBPATH environment variable.
+
+## 2014-08-26
+
+Went to Duke Crystal River to answer questions about the Beck drive installations for Stantec Project No. 198801212.  It's not in my comfort zone what with being mostly a mechanical job.
+
+Worked out at YouFit.  I did my Day #1 routine: chest, back, biceps and triceps.
+
+Tommy and Joey are now taking music lessons.  Tommy is taking drum lessons and Joey piano.
+
+
+## 2014-08-27
+
+Set up ``journalize.py`` to work on Stantec laptop.
+
+Updated ``.files`` on Stantec laptop.
+
+Got a call from a recruiter, Alyssa Beckler with HCT.  Her phone number is 941-445-4379.  Probably about the same structural position somewhere around Sarasota everyone has been contacting me about.
+
+I moved my office 2 doors down to the west where Josh Bent used to sit, next to Kemba Mays.  This was requested by Stantec to consolidate the power group personnel on second floor and provide space for the transportation group who is moving up from first floor.
+
+Harold Driggers started today as a mechanical designer.  He came from Penn-Pro in Mulberry and was previously with a company that builds reverse osmosis plants on islands and sells the water to the inhabitants.  Stantec spelled his name wrong on his office nametag.
+
+Received laptop battery today.  My old one died.
+
+Mark Noble treated everyone to lunch at the Bunker.  I had the Washington Turkey sandwich which was pretty good as always.
+
+## 2014-09-04
+
+Sent a request for investigation to the Florida Department of Agriculture and Consumer Services in reference to the botched termite investigation.
+
+## 2014-09-06
+
+Tommy and Joey had their first Fall Baseball practices.  Julie and I worked our concession shift from 8:00 am to 11:45 am.  I ran the grill and Julie worked the window.
+
+## 2014-09-07
+
+Went to YouFit to work out and pulled a muscle in my lower back at the 4th repetition of the 4th set of squats.  I was squatting 145 lbs.  The pain was immediate.  I went home and iced my back and tried to keep from putting stress on it.
+
+Our AC quit working, so Julie called a repair man.  It was Sunday.  The repair man kindly pointed out it was a safety switch which detects when the drain line is clogged.  We tried several things to unclog the drain line, including sucking on its discharge end with a shop vac and pouring drain cleaner down it, but it has been no use.  The AC is working, but only because the safety switch is currently defeated by removing it from its socket.
+
+Julie took Tommy and Joey to the bowling alley.  Tommy went to a birthday party, and Julie took Joey and his friend Gabe to bowl as a special treat since Tommy attended two birthday parties this weekend.
+
+My back was sore when I went to bed, and it was hard to sleep.
+
+## 2014-09-08
+
+My back was very sore and stiff when I got up, so much so that I found it hard to walk.  A hot shower helped, and I spent some 15 minutes stretching it thoroughly.  I also took two extra strength Tylenol.
+
+I didn't know if I could do it, but I went to Duke's Hines plant anyway and was able to function all day.  It was mostly walking and sitting with a little bending over and kneeling to get through some tight spaces.  By the time my back muscles were warmed up I was doing pretty well.
+
+Received a phone call from Steve Ericson (sp?) with the Florida Department of Agriculture and Consumer Services (FDACS).  His number is 850-528-5404.  He said I will be contacted next week by Mark Beynon, the local inspector for my area.  Mark's number is 850-528-5391.
+
+## 2014-09-09
+
+My back was again stiff and sore.  If yesterday was a 10, today was probably an 8.  It loosened up after a hot shower a little, but not as well as it did yesterday.  There were certainly fewer instances of gasping pain today, but it was stiff and sore all day.  I took one Ibuprofen this morning which did not seem to work as well as the Tylenol yesterday.
+
+
+## 2014-09-10
+
+If Monday was a 10, I would say today in the morning my back was about a 6, but by the time I got to work it was an 8.  It might be because I am not as physically active today being in the office and not in the field.  I took 1 Advil before I left home.
+
+My weight was 162.4 this morning.  My goal is to get to 160 and then keep it between 160 and 165 by watching my caloric intake.
+
+Bruce Ward is in town to meet with some clients and his employees.
+
+Joey had baseball practice last night, and Julie said he did well catching grounders and even caught a couple fly balls.  He showed improvement since the spring.  I stayed home with Tommy, fed him and read him a story before bed.  Tommy has practice on Thursday.
+
+The weather is cooler today than it has been for the past month.  It's only going to get up to 92 deg F whereas it has been hovering in the 96-99 range for a while.
+
+## 2014-09-14
+
+We went to a baby shower for Mike and Kallie Freiner.  Dave Ostrofsky and his wife Kristin were there.  I played horseshoes, and we also played in the pool with the kids.  They served hamburgers and whatnot.  At the end of the afternoon, Mike and I played guitar poorly and sang.
+
+## 2014-09-15
+
+It's been 8 days since I hurt my back, and I think I am not at a 1 relative to the first day after the injury being a 10.  It's not a zero, but it's nearly a zero.  I am planning to do a light workout on Thursday for the first time since I hurt myself.
+
+
+## 2014-10-03
+
+It took 6 minutes, 31 seconds to run the KB project make latexpdf command today at work.
+
+It took 2 minutes and 2 seconds to run make html on the same computer.
+
+## 2014-10-07
+
+Downloaded, printed and reviewed Florida Rules.  When the new 2014 building code comes out, probably in 2015, I will be required to complete an Advanced Building Code course and submit a certificate of completion to the board within 12 months.  The effective date of the new code has not been determined, so I need to wait to see when I can do the course.
+
+## 2014-10-15
+
+Today Tommy weighed 60.4 pounds with his clothes on.  Joey weighed 70.2 pounds with his clothes on.  Just say 60 and 70.
+
+## 2014-12-04
+
+Julie followed-up with her doctor today and found out that the lump in her left breast is not cancer.  It is a benign cystic fibroid.  We are obviously very relieved at this news.
+
+## 2014-12-05
+
+Fixed journalize to work with new location of Dropbox on E drive.
+
+I weigh 155.4 pounds now, which is essentially my target weight.
+
+
+## 2014-12-21
+
+Bought Dad & Cathy a $50 Amazon gift card delivered by email for Christmas since I could not think of a book to buy him.
+
+## 2014-12-31
+
+Backed up Julie's Korg to Dropbox in two locations:
+
+legeng/it/backups/data/
+
+References/Personal/Equipment/Korg Krome 88
+
+## 2015-02-01
+
+Using find . -regex '.*\.\(jpg\|JPG\)' | wc -l
+
+I determined we have 36,168 jpegs in our Dropbox/Family/Photos.
+
+## 2015-03-06
+
+Created backup of iPhone SMS messages to text files, etc.  See Dropbox/legeng/it/data/backups/sms
+
+## 2015-03-19
+
+Installed Python 3.4.3 on legner4 Windows box.
+
+Also installed virtualenvwrapper on windows.
