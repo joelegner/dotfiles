@@ -51,6 +51,7 @@ Plug 'https://github.com/vim-scripts/AutoComplPop'
 Plug 'https://github.com/thindil/vim-ada'
 Plug 'https://github.com/preservim/nerdcommenter'
 Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'https://github.com/masukomi/vim-markdown-folding'
 call plug#end()
 
 
