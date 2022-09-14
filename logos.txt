@@ -349,8 +349,6 @@ PyRex - combines Python and C for speed
 
 ## 2006-09-25
 
-Created file for dream house requirements: F:\house and family\dream_house.odt
-
 Had to get Python on legner2 to see MySQL on legner1.
 
 1.  On legner 1, commented out line in my.cnf::
@@ -369,7 +367,7 @@ Had to get Python on legner2 to see MySQL on legner1.
 ## 2006-09-26
 
 Labels for plan holder clamps are 3.5" high by 0.6" wide.  The text height is
-36 points.  See L:\admin\data\files\stick_labels.odt
+36 points.  
 
 ## 2006-10-02
 
@@ -746,8 +744,10 @@ say, .png files to .eps, use ImageMagick mogrify utility::
 
 Now import into LaTeX document with::
 
-   \usepackage{graphicx}
-   \includegraphics{filename.eps}
+```
+\usepackage{graphicx}
+\includegraphics{filename.eps}
+```
 
 ## 2007-09-12
 
@@ -1260,7 +1260,7 @@ https://svn.ursavus.com/leglib/legutils
 Brought aisc command line program under leglib/legutils.  Tested, and it works
 on cygwin at the office.
 
-Toyed around with Dropbox\Temp\gmail_lister\gmail_list.py
+Toyed around with `Dropbox\Temp\gmail_lister\gmail_list.py`
 
 Imported and tweaked a vim todo.txt syntax file.
 
@@ -2177,3 +2177,4 @@ Created backup of iPhone SMS messages to text files, etc.  See Dropbox/legeng/it
 Installed Python 3.4.3 on legner4 Windows box.
 
 Also installed virtualenvwrapper on windows.
+
