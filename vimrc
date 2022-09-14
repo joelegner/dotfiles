@@ -282,4 +282,5 @@ autocmd BufEnter *.ads set softtabstop=3
 " -------------------------------------
 " Treat my special logos.txt file as markdown.
 autocmd BufNewFile,BufFilePre,BufRead logos.txt set filetype=markdown
+set nofoldenable      " Turn off folding
 
