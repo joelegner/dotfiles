@@ -4,20 +4,117 @@ date: September 14, 2022
 author: Joe Legner, Sr.
 ---
 
-# In the Beginning 
+# Introduction
+
+## In the Beginning
 
 > In the beginning was the Logos, and the Logos was with God, and the Logos was God.
 
 `logos.txt` is a special text file with everything I know. I created it on September 14, 2022 at 12:21 pm in Valrico, Florida.
 
+## Rules
+
+1. Use Markdown format.
+2. Do not go more than three levels deep: `### Level 3`.
+3. Do not include "news". For the purpose of this rule, news is a set of facts
+   that are not related in ways that could lead to additional inferences
+   (insight). Think pragmatism: news has no bearing on practical matters in my
+   own life, so why include it.
+4. No images. If you want to include an image, include a URL to one on the Internet.
+
+## Top-Level Headings
+
+- **Introduction** - Meta-information about the logos.txt file.
+
+- **Start** - A jumping off point with things like Internet bookmarks.
+
+- **Encyclopedia** - An alphabetical list of topics that can be nested up to two
+  levels deep (to avoid violating the not more than 3 levels deep rule).
+
+- **Ideas** - A scratchpad of new ideas that have not yet been sorted into another
+  top-level heading category.
+
+# Encyclopedia
+
+## Anki
+
+I use Anki to learn things. See <https://apps.ankiweb.net>.
+
+## Concept
+
+A concept is an important... concept. But what is it? Let's do a little research and see.
+
+WordNet 3.1 gives this for the concept synset:
+
+> (n) concept, conception, construct (an abstract or general idea inferred or derived from specific instances)
+
+WordNet says the hypernym for concept is idea:
+
+> (n) idea, thought (the content of cognition; the main thing you are thinking about) "it was not a good idea"; "the thought never entered my mind"
+
+
+The WikiPedia page for concept is here: <https://en.wikipedia.org/wiki/Concept> According to this page:
+
+> Concepts are defined as abstract ideas.
+
+Concepts can be talked about as either:
+
+1. Mental objects
+2. Mental states
+3. Abstract objects (not mental)
+
+Concepts can have different properties.
+
+- Level 
+    - Superordinate: "Furniture"
+    - Basic: "Chair"
+    - Subordinate: "Desk Chair"
+- Exactness
+    - Inexact 
+    - Exact
+
+There are synonyms for "concept" listed in the WikiPedia article. These include classes, schema, and categories.
+
+What about Etymology Online? <https://www.etymonline.com/search?q=concept>
+
+Etymology Online talks about concepts as something one "takes in and holds." It mentions becoming pregnant. So there is some sense of it being inside someone's (an agent's) mind. A concept is mentally conceived like a baby is physically conceived.
+
+See also [Idea].
+
+## Formal Axiology
+
+The saying I have been learning recently is this:
+
+> A thing is good to the degree it exemplifies its concept.
+
+Tonight I somehow re-molded this sentence into the one below which seems to be a pretty solid model for living. For the record, I wrote the phrase on September 15, 2022 at 10:15 pm.
+
+> A thought, feeling, or act is rational if it leads toward contentment and health.
+
+I went through about 20 re-writes on my way to this one. Thinking, feeling, and acting are all we do. My two fundamental goals are contentment and health.My entire experience of the world is seeing, hearing, smelling, tasting, touching, thinking, emoting, feeling, and finally, the stuff the body does: talking, listening, walking, working, and, in general, behaving. Behavior is what you do with yourself. The right way to live would be for all of these parts of our experience to be improving our odds of feeling content. 
+
+Contentment is the state of being satisfied with what is, all the ups and downs, all the worries and joys. Either we approve of how life is or we disapprove. If we are content, we are relaxed and easy. We are comfortable and confident. 
+
+Doing something to increase the probability or degree of satisfaction with my life and the continued existence of a good, strong body. 
+
+A thing is a separate and self-contained entity. Good is a unique and axiomatically defined idea. Good just is. Other things stand in relation to good, whatever it is. If we say, "pleasure is good" we can see right away that pleasure and good must be two separate things. Otherwise this sentence is redundant. But it sounds perfectly fine to us, so we understand them to be two separate things. Pleasure is a feeling in a body. To say it is good is to say it is from somewhere else.
+
+Maybe what we call "good" is just the name for the circumstance that it improves our flourishing. Nature has programmed us to recognize what it means to say something is good. 
+
+See [Concept].
+
+## Idea
+
+An idea seems to be from an Ancient Greek word meaning "I see." I like this. I think an idea is something we see in our heads. If I were to say, "I am thinking of a tree," to me that would be almost equivalent to, "I am seeing a tree in my head." Maybe a concept is simply a word-based description of what I am seeing in my head.
+
+See also [Concept].
+
+## Vim
+
+I use Vim for text editing. <https://www.vim.org>.
+
 # Journal Entries
 
-## 2006-03-20
-
-Gave up on Debian AMD 64.  Installed 32-bit Etch (testing) system.  Detected
-SATA drive, but I chose to install on 80GB IDE drive.  I want to keep things
-simple!
-    
 ## 2006-03-21
 
 Installed phpMyAdmin.
@@ -21742,7 +21839,7 @@ Your structure has to deal with full sentences.
 
 [#0304290122](#id0304290122) [#0112230520](#id0112230520) [#2215060222](#id2215060222) [#2315060222](#id2315060222)
 
-# Zettlekasten Zettels
+# Zettlekasten 
 
 ## Markdown Code Formatting {#id0216290122}
 
@@ -31506,3 +31603,4 @@ Your structure has to deal with full sentences.
 4. What could we do about it?
 
 5. What should we do about it?
+
