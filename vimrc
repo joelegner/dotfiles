@@ -47,7 +47,7 @@ call plug#begin()
 " after it completes, press q to exit the little side window.
 " Use :PlugUpgrade to upgrade vim-plug itself
 Plug 'https://github.com/honza/vim-snippets'
-Plug 'https://github.com/vim-scripts/AutoComplPop'
+"Plug 'https://github.com/vim-scripts/AutoComplPop'
 Plug 'https://github.com/thindil/vim-ada'
 Plug 'https://github.com/preservim/nerdcommenter'
 Plug 'https://github.com/vim-airline/vim-airline'
@@ -282,5 +282,7 @@ autocmd BufEnter *.ads set softtabstop=3
 " -------------------------------------
 " Treat my special logos.txt file as markdown.
 autocmd BufNewFile,BufFilePre,BufRead logos.txt set filetype=markdown
-set nofoldenable      " Turn off folding
+autocmd BufNewFile,BufFilePre,BufRead logos.txt set textwidth=0
+autocmd BufNewFile,BufFilePre,BufRead logos.txt set nofoldenable      
+
 
