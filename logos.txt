@@ -1,6 +1,6 @@
 ---
 title: logos.txt
-date: September 14, 2022
+date: September 16, 2022
 author: Joe Legner, Sr.
 ---
 
@@ -36,9 +36,126 @@ author: Joe Legner, Sr.
 
 # Encyclopedia
 
+## Ada
+
+### Online Resources
+
+I learned a lot going through a tutorial called Lovelace by a D. Wheeler on Ada 95. That might seem funny, since this is 2022, but the language is so stable that the stuff from 1995 is still relevant. But more than that, the tutorial is very well written and includes a little quiz at the end of each lesson to make sure you got it.
+
+<http://dwheeler.com/lovelace/master.htm>
+
+Here are a couple guys that wrote about their experiences with Ada.
+
+<https://www.12000.org/my_notes/ada/index.htm>
+
+<https://pyjarrett.github.io/programming-with-ada/four-months-summary.html>
+
+This is a cool online compiler that also has many other languages:
+
+<https://rextester.com/l/ada_online_compiler>
+
+This is an attempt at an Antlr V4 grammar:
+
+<https://github.com/okellogg/ada_antlr_grammar/blob/master/antlr4/Ada.g4>
+
+Stackoverflow tagged "ada":
+
+<https://stackoverflow.com/questions/tagged/ada>
+
+Ada listserver for `comp.lang.ada`.
+
+<https://archive.legitdata.co/comp.lang.ada/>
+
+Here is the Google Groups version of the same `comp.lang.ada` listserver.
+
+<https://groups.google.com/g/comp.lang.ada>
+
+Here is the FAQ for `comp.lang.ada`.
+
+<https://www.adahome.com/FAQ/comp-lang-ada.html>
+
+FSF GNAT start page. This is a better start page than Adacore.
+
+<http://getadanow.com>
+
+### File Structure
+
+This may inspire my Ada programming organization. 
+
+```
+README.md
+bin
+gen_docs.gpr
+make.sh
+obj
+run.sh
+src
+   agencies.ads
+   deliverables.ads
+   engineering.ads
+   leadership.ads
+   main.adb
+   operations.ads
+   project_management.ads
+   suppliers.ads
+   vendors.ads
+```
+
+### Ada Object-Oriented Type Definition Template
+
+I am not sure I want to go to the extent of using OOP on an imminent project. Right now I am writing this weird document generator project for my TECO project, and for that one, I am using functional programming instead of OOP. 
+
+But anyway, here is a suggested template for an OOP package:
+
+```ada
+with PACKAGE_NAME_OF_PARENT;
+  use  PACKAGE_NAME_OF_PARENT;
+  package PACKAGE_NAME is
+    type MY_TYPE is tagged private; -- or, new Parent_Type with private
+    type MY_TYPE_Access is access all MY_TYPE'Access;
+        -- We'll talk about this in a later lesson; by adding this declaration
+        -- here you'll make certain operations easier to do later.
+    -- Dispatching operations go here.
+  private
+    -- Define the details of MY_TYPE here.
+end PACKAGE_NAME;
+```
+
+### Design By Contract in Ada
+
+Here is an example from the Internet. <https://pyjarrett.github.io/programming-with-ada/four-months-summary.html>
+
+```ada
+function Merge (A, B : Context_Match) return Context_Match with
+    Pre  => Is_Valid (A) and then Is_Valid (B),
+    Post => Is_Valid (Merge'Result);
+```
+
 ## Anki
 
 I use Anki to learn things. See <https://apps.ankiweb.net>.
+
+## Antlr
+
+Antlr is a cool parser generator. Some time in 2022, I learned some things about BNF, EBNF, context-free grammars, and Antlr. Anyway, here is a Github repository with a bunch of Antlr-style grammars. 
+
+<https://github.com/antlr/grammars-v4>
+
+I like the Antlr syntax, because I know it works with Antlr! If I wrote in EBNF or BNF, it might be hell to parse it properly. I might as well use Antler.
+
+There is no grammar for [Ada] but look under the [Ada] section to see an unofficial one.
+
+## Computer Programming
+
+Ada is my recent discovery. See [Ada].
+
+### Visual Studio Code
+
+I like Visual Studio Code. It is sometimes spelled "VS Code", "VSCode", or "vscode". It seems to handle my `logos.txt` file better than MacVim.
+
+<https://code.visualstudio.com>
+
+See also [Vim].
 
 ## Concept
 
@@ -129,9 +246,45 @@ An idea seems to be from an Ancient Greek word meaning "I see." I like this. I t
 
 See also [Concept].
 
+## Programming
+
+See [Computer Programming].
+
+## Python
+
+```python
+# Extract absolute path of currently executing python file
+import os
+DIR = os.path.abspath(os.path.dirname(__FILE__))
+
+# Now use DIR to create absolute paths
+"NAME" : os.path.join(DIR, "mydata.db"),
+```
+
+## Spanish
+
+Language Transfer Course:
+
+<https://soundcloud.com/languagetransfer/sets/complete-spanish>
+
+Spanish Practice Audio Files:
+
+<https://www.spanishlistening.org>
+
+
 ## Vim
 
 I use Vim for text editing. <https://www.vim.org>.
+
+You can open a hyperlink in Vim by typing `gx` in Normal mode. Try it on the www.vim.org link above.
+
+`:echom` is a vim command which works like echo but persists such that the
+message can be viewed later with `:messages`.
+
+! added to a boolean setting will toggle it.  `:set number!` toggles line nos.
+
+`inoremap`, `nnoremap`, `vnoremap` ignore previous remappings.  Use them always.
+I revised my .vimrc to use them in all cases.
 
 # Journal Entries
 
@@ -463,23 +616,6 @@ Upgraded samba (3.0.22-1) to 3.0.23c-1; now it doesn't work right!
 ## 2006-09-14
 
 PyRex - combines Python and C for speed
-
-## 2006-09-25
-
-Had to get Python on legner2 to see MySQL on legner1.
-
-1.  On legner 1, commented out line in my.cnf::
-
-      # bind-address          = 127.0.0.1
-
-2.  On legner1: ``/etc/init.d/mysql restart``
-
-3.  On legner2, installed MySQL essential windows package to get the client and
-    test.
-
-4.  On legner2, installed MySQL connector to get ODBC database driver.
-
-5.  On legner2, installed PyMySQL.
 
 ## 2006-09-26
 
@@ -890,17 +1026,6 @@ existing django directory::
 And then restarting the Apache2 server::
 
    ~/webapps/django-ursavus/apache2/bin/restart
-
-## 2010-03-08
-
-To install a new kernel with a debian system::
-
-   # apt-get install linux-image 2.6
-
-Had to upgrade nvidia driver by downloading their .run package and also
-installing headers::
-
-   # apt-get install linux-headers-2.6.32-trunk-486
 
 ## 2011-01-20
 
@@ -1448,16 +1573,6 @@ http://sourceforge.net/projects/imagecomparator/
 
 Was able to delete 480 images.
 
-## 2012-12-24
-
-::
-   # Extract absolute path of currently executing python file
-   import os
-   DIR = os.path.abspath(os.path.dirname(__FILE__))
-
-   # Now use DIR to create absolute paths
-   "NAME" : os.path.join(DIR, "mydata.db"),
-
 ## 2012-12-26
 
 In Vim, use semi-colon to repeat last f (find char) command.
@@ -1482,31 +1597,6 @@ will extend the selection to become John has a (long mustache.)
 Consumer Reports #1 general use cordless drill:
 
 Hitachi 18V DS18DSAL$129.00 on sale at Menards.com
-
-## 2012-12-27
-
-Added cygwin crontab backup to .files::
-
-   /home/jlegner/.files/webfaction-specific/jlegner_crontab
-
-Also added hourly backup to crontab::
-
-   # Backup crontab file every hour at 11 after
-   11 * * * * crontab -l > /home/jlegner/.files/cygwin-specific/jlegner_crontab
-
-Pip puts its build stuff under ~/.virtualenvs/bears/build/
-
-:echom is a vim command which works like echo but persists such that the
-message can be viewed later with :messages.
-
-! added to a boolean setting will toggle it.  :set number! toggles line nos.
-
-inoremap, nnoremap, vnoremap ignore previous remappings.  Use them always.
-I revised my .vimrc to use them in all cases.
-
-Created bears virtualenv on cygwin with virtualenvwrapper.
-
-Re-installed all packages from bears/requirements.txt on cygwin.
 
 ## 2013-01-02
 
@@ -7500,10 +7590,6 @@ This is an interesting trio. Let's look at some examples from my life.
     - Discipline = Working at TECO
     - Field = Employees
 
-    # 2021-01-16 The Wonder Twins Stream
-
-We had a great [stream](https://www.twitch.tv/videos/876558627) tonight. It was easily our best. We made $103 in tips.
-
 ## 2021-01-18 Virtue Continuum
 
 Julie sent this to me today, and I liked it.
@@ -10064,9 +10150,7 @@ def create_component(e, c):
 if __name__ == "__main__":
     create_component(Beam(L=24.5, w=0.94))
     
-
-
-```# 2021-10-30
+```
 
 ## Philosophy of Life
 
@@ -10690,7 +10774,6 @@ After an accidental scroll of deep descent, I am deeper than I want to be. I'm h
 1. Temporary road removal
 1. Lessons learned meeting
 1. Project close-out
- # 2021-12-31
 
 ## Sorting Destinations
 
@@ -18937,8 +19020,7 @@ After an accidental scroll of deep descent, I am deeper than I want to be. I'm h
 1. Temporary road removal
 1. Lessons learned meeting
 1. Project close-out
- # 2021-12-31
-
+ 
 ## Sorting Destinations {#id5875480222}
 
 #5875480222
