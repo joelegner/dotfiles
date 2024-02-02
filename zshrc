@@ -268,7 +268,7 @@ alias p="cd '$PROJECTS'"
 alias ebook-convert=/Applications/calibre.app/Contents/MacOS/ebook-convert 
 alias duo="clear && shuf -e"
 alias yt2mp3="yt-dlp -x --audio-format mp3"
-alias gogo='gogo_and_cd() { gogo.sh "$1" && cd "$1" && gvim "main.go" && go run . ; }; gogo_and_cd'
+alias gogo='gogo_and_cd() { gogo.sh "$1" && cd "$1" && go run . && code . ; }; gogo_and_cd'
 
 # Added this on 2021-12-17
 # It creates and activates a new python virtual env if it does not exist
