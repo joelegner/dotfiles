@@ -1,0 +1,37 @@
+#!/bin/zsh
+
+# Check if an argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <folder_name>"
+    exit 1
+fi
+
+# Step 1: Take the new folder name as an argument
+new_folder="$1"
+
+# Step 2: Create the new folder
+mkdir "$new_folder"
+
+# Step 3: Change directory to the new folder
+cd "$new_folder"
+
+# Step 4: Create a Python virtual environment called 'env'
+python3 -m venv env
+
+# Step 5: Activate the virtual environment
+source env/bin/activate
+
+# Step 6: Create a __main__.py file with a simple hello, world __main__ function
+cat > __main__.py <<EOL
+def main():
+    print("Hello, world!")
+
+if __name__ == "__main__":
+    main()
+EOL
+
+# Step 7: Open the new folder in VS Code
+code .
+
+echo "Folder '$new_folder' created and configured. Virtual environment activated."
+
