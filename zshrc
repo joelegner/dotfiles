@@ -211,6 +211,10 @@ ZSH_THEME="clean" # Trying as of 2020-07-19
 # Joe's path 2020-06-20
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 
+# Add Alire path per these instructions:
+# https://alire.ada.dev/docs/#alr-on-macos
+export PATH="/Users/joelegner/alr-1/bin/:$PATH"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -258,11 +262,13 @@ source $ZSH/oh-my-zsh.sh
 alias python=python3.10
 alias python3=python3.10
 alias g="cd ~/Google\ Drive/"
+alias dt="cd ~/Desktop/"
 alias pip=pip3
 alias p="cd '$PROJECTS'"
 alias ebook-convert=/Applications/calibre.app/Contents/MacOS/ebook-convert 
 alias duo="clear && shuf -e"
-alias yt2mp3="youtube-dl -x --audio-format mp3"
+alias yt2mp3="yt-dlp -x --audio-format mp3"
+alias gogo='gogo_and_cd() { gogo.sh "$1" && cd "$1" && gvim "main.go" && go run . ; }; gogo_and_cd'
 
 # Added this on 2021-12-17
 # It creates and activates a new python virtual env if it does not exist
@@ -302,4 +308,8 @@ fi
 
 # Add Gnat to the path
 export PATH="/Users/joelegner/opt/GNAT/2020/bin:$PATH"
+
+# Add Go paths
+export GOPATH=$HOME/go
+export PATH="$GOPATH/bin:$PATH"
 
