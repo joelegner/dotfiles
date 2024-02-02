@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+# Create a temporary file for Vim to edit
+tmpfile=$(mktemp)
+trap 'rm -f "$tmpfile"' EXIT
+
+# Launch Vim to edit the temporary file
+vim "$tmpfile"
+
+# Shuffle the contents of the file and print them
+cat "$tmpfile" | shuf
+
