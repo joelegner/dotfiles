@@ -76,7 +76,7 @@ set wildmenu        " Turn on wild menu
 set wildmode=full
 set wrap		    " Wrap long lines of text
 syntax on           " Turn on syntax highlighting.
-set foldenable      " Turn on folding
+set nofoldenable   " Turn off folding
 " NERDCommenter 
 " https://github.com/preservim/nerdcommenter
 " Use Control + Underscore (_) key to toggle
@@ -267,7 +267,7 @@ autocmd BufRead *.otl set printoptions=number:y " print line numbers
 autocmd BufReadPost *.otl set foldlevel=0
 
 " -------------------------------------
-" Ada (*.tex)
+" Ada (*.adb|*.ads)
 " -------------------------------------
 " Change width to 3 to match gnatpp default
 autocmd BufEnter *.adb set shiftwidth=3
@@ -277,12 +277,9 @@ autocmd BufEnter *.ads set tabstop=3
 autocmd BufEnter *.adb set softtabstop=3
 autocmd BufEnter *.ads set softtabstop=3
 
-" -------------------------------------
-" logos.txt
-" -------------------------------------
-" Treat my special logos.txt file as markdown.
-autocmd BufNewFile,BufFilePre,BufRead logos.txt set filetype=markdown
-autocmd BufNewFile,BufFilePre,BufRead logos.txt set textwidth=0
-autocmd BufNewFile,BufFilePre,BufRead logos.txt set nofoldenable      
+" Move current line down using ALT+j
+nnoremap <A-j> :<C-u>execute 'normal! '.(v:count1 ? v:count1 : '').'dd'.'+'.(v:count1 ? v:count1 : '').'p'<CR>
 
+" Move current line up using ALT+k
+nnoremap <A-k> :<C-u>execute 'normal! '.(v:count1 ? v:count1 : '').'dd'.'-'.(v:count1 ? v:count1 : '').'p'<CR>
 
