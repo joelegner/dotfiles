@@ -2,6 +2,9 @@
 logos: 
 	open "/Users/joelegner/Google Drive/References/kb/logos.pdf"
 
+.PHONY: wisdom
+wisdom: logos
+
 .PHONY: wordnet
 wordnet: 
 	open "http://wordnetweb.princeton.edu/perl/webwn"
@@ -11,7 +14,7 @@ life: live
 
 .PHONY: live
 live: 
-	open "/Users/joelegner/Desktop/live.mm"
+	open "/Users/joelegner/Google Drive/References/kb/live.mm"
 
 .PHONY: do
 do: live
