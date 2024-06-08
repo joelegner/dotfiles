@@ -269,6 +269,7 @@ alias ebook-convert=/Applications/calibre.app/Contents/MacOS/ebook-convert
 alias duo="clear && shuf -e"
 alias yt2mp3="yt-dlp -x --audio-format mp3"
 alias gogo='gogo_and_cd() { gogo.sh "$1" && cd "$1" && go run . && code . ; }; gogo_and_cd'
+alias icloud="cd /Users/joelegner/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 # Added this on 2021-12-17
 # It creates and activates a new python virtual env if it does not exist
@@ -308,6 +309,7 @@ fi
 
 # Add Gnat to the path
 export PATH="/Users/joelegner/opt/GNAT/2020/bin:$PATH"
+export PATH="/Users/joelegner/Desktop/Programming/Ada/alr-2/bin:$PATH"
 
 # Add Go paths
 export GOPATH=$HOME/go
