@@ -250,25 +250,30 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+# Here are some key directories defined
+export LEGENG="/Users/joelegner/Desktop/Business/LegEng"
+export PROJ="/Users/joelegner/Desktop/Business/LegEng/Engineering"
+export PROG="/Users/joelegner/Desktop/Programming"
+export WORK="/Users/joelegner/Desktop/Business"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python=python3.10
-alias python3=python3.10
+# You can use them like this:
+# $ cd $WORK
+# $ cd $LEGENG
+
+# But there is also a corresponding alias for each of them.
+# This is okay. There is no collision between the alias and export variables.
+alias legeng="cd $LEGENG"
+alias proj="cd $PROJ"
+alias work="cd $WORK"
+alias prog="cd $PROG"
 alias g="cd ~/Google\ Drive/"
 alias dt="cd ~/Desktop/"
+alias tpe="cd /Users/joelegner/Desktop/Business/TPE"
 alias pip=pip3
-alias p="cd '$PROJECTS'"
 alias ebook-convert=/Applications/calibre.app/Contents/MacOS/ebook-convert 
-alias duo="clear && shuf -e"
 alias yt2mp3="yt-dlp -x --audio-format mp3"
 alias gogo='gogo_and_cd() { gogo.sh "$1" && cd "$1" && go run . && code . ; }; gogo_and_cd'
+
 
 # Added this on 2021-12-17
 # It creates and activates a new python virtual env if it does not exist
@@ -308,8 +313,12 @@ fi
 
 # Add Gnat to the path
 export PATH="/Users/joelegner/opt/GNAT/2020/bin:$PATH"
+export PATH="/Users/joelegner/Desktop/Programming/Ada/alr-2/bin:$PATH"
 
 # Add Go paths
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
+
+# Prefix a command with a space to prevent it from being logged under history
+setopt HIST_IGNORE_SPACE
 
