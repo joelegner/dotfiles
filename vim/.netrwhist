@@ -1,3 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Library/Application Support/Apple/Automator/Workflows/Process Images.workflow/Contents'
+let g:netrw_dirhist_4='/Library/Application Support/Apple/Automator/Workflows/Process Images.workflow'
+let g:netrw_dirhist_3='/Library/Application Support/Apple/Automator/Workflows/Process Images.workflow/Contents'
+let g:netrw_dirhist_2='/Library/Application Support/Apple/Automator/Workflows/Process Images.workflow'
 let g:netrw_dirhist_1='/Users/joelegner'
