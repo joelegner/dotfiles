@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+# Check if an argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <PackageName>"
+    exit 1
+fi
+
+# Step 1: Take the new folder name as an argument
+package_name="$1"
+
+# Step 2: Create the new folder
+mkdir "$package_name"
+
+# Step 3: Change directory to the new folder
+cd "$package_name"
+
+# Step 4: Initialize the Swift package
+swift package init --type executable --name $package_name
+
+# Step 5: Add a README.md file
+cat > README.md <<EOL
+# Swift Package $package_name
+
+This package created by \`goswift\` script on $(date +"%B %d, %Y").
+
+To run the program: \`$ swift run $package_name\`
+EOL
+
+# Step 6: Report the results
+echo "Swift Package '$package_name' created and configured."
+echo "To test use:"
+echo "$ swift run"
+
+# Step 7: Open the new folder in VS Code
+code .
