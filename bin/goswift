@@ -30,7 +30,7 @@ EOL
 # Step 6: Report the results
 echo "Swift Package '$package_name' created and configured."
 echo "To test use:"
-echo "$ swift run"
+echo "$ swift run $package_name"
 
 # Step 7: Open the new folder in VS Code
 code .

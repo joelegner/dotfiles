@@ -255,6 +255,7 @@ export LEGENG="/Users/joelegner/Desktop/Business/LegEng"
 export PROJ="/Users/joelegner/Desktop/Business/LegEng/Engineering"
 export PROG="/Users/joelegner/Desktop/Programming"
 export WORK="/Users/joelegner/Desktop/Business"
+export SWIFT="/Users/joelegner/Desktop/Programming/Swift"
 
 # You can use them like this:
 # $ cd $WORK
@@ -263,6 +264,7 @@ export WORK="/Users/joelegner/Desktop/Business"
 # But there is also a corresponding alias for each of them.
 # This is okay. There is no collision between the alias and export variables.
 alias legeng="cd $LEGENG"
+alias swift="cd $SWIFT"
 alias proj="cd $PROJ"
 alias work="cd $WORK"
 alias prog="cd $PROG"
