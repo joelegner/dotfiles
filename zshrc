@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/joelegner/.oh-my-zsh"
+#export ZSH="/Users/joelegner/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -232,7 +232,7 @@ plugins=(
   python
 )
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -264,7 +264,7 @@ export SWIFT="/Users/joelegner/Desktop/Programming/Swift"
 # But there is also a corresponding alias for each of them.
 # This is okay. There is no collision between the alias and export variables.
 alias legeng="cd $LEGENG"
-alias swift="cd $SWIFT"
+alias cdswift="cd $SWIFT"
 alias proj="cd $PROJ"
 alias work="cd $WORK"
 alias prog="cd $PROG"
@@ -324,4 +324,14 @@ export PATH="$GOPATH/bin:$PATH"
 
 # Prefix a command with a space to prevent it from being logged under history
 setopt HIST_IGNORE_SPACE
+
+# Get rid of the timestamps on the right edge of every line
+#unset RPROMPT
+#eval "$(~/.local/bin/mise activate)"
+
+export PATH="/opt/homebrew/bin:$PATH"
+
+# Prompt stuff 2025-02-27
+autoload -U promptinit && promptinit
+prompt adam1
 
