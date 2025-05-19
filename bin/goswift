@@ -32,5 +32,6 @@ echo "Swift Package '$package_name' created and configured."
 echo "To test use:"
 echo "$ swift run $package_name"
 
-# Step 7: Open the new folder in VS Code
-code .
+# Step 7: Open the new folder in Xcode (new 4/24/2025)
+xed Package.swift
+
