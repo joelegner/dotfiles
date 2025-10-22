@@ -277,7 +277,8 @@ alias yt2mp3="yt-dlp -x --audio-format mp3"
 alias yt2wav="yt-dlp -x --audio-format wav"
 alias gogo='gogo_and_cd() { gogo.sh "$1" && cd "$1" && go run . && code . ; }; gogo_and_cd'
 alias icloud="cd /Users/joelegner/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias c="clear"
+alias c.="clear"
+alias axiomat='/Users/joelegner/Library/Mobile\ Documents/com~apple~CloudDocs/Desktop/Projects/axiomat/axiomat'
 
 
 # Added this on 2021-12-17
@@ -336,4 +337,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 # Prompt stuff 2025-02-27
 autoload -U promptinit && promptinit
 prompt default
+
+# Add P14: Axiomat
+export PATH="$PATH:/Users/joelegner/axiomat"
 
