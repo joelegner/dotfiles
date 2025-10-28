@@ -278,8 +278,7 @@ alias yt2wav="yt-dlp -x --audio-format wav"
 alias gogo='gogo_and_cd() { gogo.sh "$1" && cd "$1" && go run . && code . ; }; gogo_and_cd'
 alias icloud="cd /Users/joelegner/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias c.="clear"
-alias axiomat='/Users/joelegner/Library/Mobile\ Documents/com~apple~CloudDocs/Desktop/Projects/axiomat/axiomat'
-
+alias kb="cd ~/kb/prolog && swipl -s kb.pl"
 
 # Added this on 2021-12-17
 # It creates and activates a new python virtual env if it does not exist
