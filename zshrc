@@ -279,6 +279,8 @@ alias gogo='gogo_and_cd() { gogo.sh "$1" && cd "$1" && go run . && code . ; }; g
 alias icloud="cd /Users/joelegner/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias c.="clear"
 alias kb="cd ~/kb/prolog && clear && swipl -s kb.pl"
+# I tend to add a dot at the end of every statement thanks to Prolog
+alias kb.="cd ~/kb/prolog && clear && swipl -s kb.pl"
 
 # Added this on 2021-12-17
 # It creates and activates a new python virtual env if it does not exist
