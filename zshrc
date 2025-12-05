@@ -279,9 +279,10 @@ alias gogo='gogo_and_cd() { gogo.sh "$1" && cd "$1" && go run . && code . ; }; g
 alias icloud="cd /Users/joelegner/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias c.="clear"
 # alias kb="cd ~/kb/prolog && clear && swipl --quiet -s kb.pl"
-alias swipl="open -a 'SWI-Prolog'"
+# alias swipl="open -a 'SWI-Prolog'" # Failed experiment to install SWI Prolog 10.0.1
 # I tend to add a dot at the end of every statement thanks to Prolog
-alias kb.="cd ~/kb/prolog && clear && swipl --quiet -s kb.pl"
+alias kb="cd ~/kb/prolog && clear && swipl --quiet -s kb.pl"
+alias kb.="kb"
 
 # Added this on 2021-12-17
 # It creates and activates a new python virtual env if it does not exist
