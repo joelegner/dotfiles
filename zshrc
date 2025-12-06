@@ -299,13 +299,6 @@ export PATH="$PATH:/Users/joelegner/.local/bin"
 # Source the Rust env variables
 source $HOME/.cargo/env
 
-
-# Added for Eiffel Studio
-export ISE_EIFFEL=/usr/local/Eiffel_21.11
-export ISE_PLATFORM=maxosx-x86-64 
-export PATH=$PATH:$ISE_EIFFEL/studio/spec/$ISE_PLATFORM/bin
-
-
 #[ -f "/Users/joelegner/.ghcup/env" ] && source "/Users/joelegner/.ghcup/env" # ghcup-env
 [ -f "/Users/joelegner/.ghcup/env" ] && source "/Users/joelegner/.ghcup/env" # ghcup-env
 
@@ -320,20 +313,8 @@ if type brew &>/dev/null; then
     compinit
 fi
 
-# Add Gnat to the path
-export PATH="/Users/joelegner/opt/GNAT/2020/bin:$PATH"
-export PATH="/Users/joelegner/Desktop/Programming/Ada/alr-2/bin:$PATH"
-
-# Add Go paths
-export GOPATH=$HOME/go
-export PATH="$GOPATH/bin:$PATH"
-
 # Prefix a command with a space to prevent it from being logged under history
 setopt HIST_IGNORE_SPACE
-
-# Get rid of the timestamps on the right edge of every line
-#unset RPROMPT
-#eval "$(~/.local/bin/mise activate)"
 
 export PATH="/opt/homebrew/bin:$PATH"
 
@@ -343,4 +324,3 @@ prompt default
 
 # Add P14: Axiomat
 export PATH="$PATH:/Users/joelegner/axiomat"
-
