@@ -324,3 +324,7 @@ prompt default
 
 # Add P14: Axiomat
 export PATH="$PATH:/Users/joelegner/axiomat"
+
+export KB_PATH="/Users/joelegner/kb"
+export TPE_PATH="/Users/joelegner/tpe"
+export PROLOG_PATH="/Users/joelegner/prolog"
