@@ -283,6 +283,7 @@ alias c.="clear"
 # I tend to add a dot at the end of every statement thanks to Prolog
 alias kb="cd ~/kb/prolog && clear && swipl --quiet -s kb.pl"
 alias kb.="kb"
+alias rhymeswith='cd ~/temp/rhymeswith/ && ./rhymeswith'
 
 # Added this on 2021-12-17
 # It creates and activates a new python virtual env if it does not exist
