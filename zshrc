@@ -281,7 +281,7 @@ alias c.="clear"
 # alias kb="cd ~/kb/prolog && clear && swipl --quiet -s kb.pl"
 # alias swipl="open -a 'SWI-Prolog'" # Failed experiment to install SWI Prolog 10.0.1
 # I tend to add a dot at the end of every statement thanks to Prolog
-alias kb="cd ~/kb/prolog && clear && swipl --quiet -s kb.pl"
+alias kb="cd ~/kb/prolog && swipl --quiet -s kb.pl"
 alias kb.="kb"
 alias rhymeswith='cd ~/temp/rhymeswith/ && ./rhymeswith'
 
