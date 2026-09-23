@@ -278,10 +278,8 @@ alias yt2wav="yt-dlp -x --audio-format wav"
 alias gogo='gogo_and_cd() { gogo.sh "$1" && cd "$1" && go run . && code . ; }; gogo_and_cd'
 alias icloud="cd /Users/joelegner/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias c.="clear"
-# alias kb="cd ~/kb/prolog && clear && swipl --quiet -s kb.pl"
-# alias swipl="open -a 'SWI-Prolog'" # Failed experiment to install SWI Prolog 10.0.1
 # I tend to add a dot at the end of every statement thanks to Prolog
-alias kb="cd ~/kb/prolog && swipl --quiet -s kb.pl"
+alias kb='swipl --quiet -s "$KB_PATH/prolog/kb.pl"'
 alias kb.="kb"
 alias rhymeswith='cd ~/temp/rhymeswith/ && ./rhymeswith'
 
