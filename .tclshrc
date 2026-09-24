@@ -1,0 +1,13 @@
+# Made this Thursday, September 24, 2026 at 1:16 AM.
+# Added rando command Thursday, September 24, 2026 at 1:57 AM.
+proc rando { {max 100} } { expr { int(1 + floor(rand() * $max)) } }
+
+# Example usage
+# Joes-MacBook-Pro% tclsh
+# % rando 152
+# 48
+# % rando 152
+# 147
+# % rando 152
+# 56
+ 
