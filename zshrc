@@ -282,6 +282,7 @@ alias c.="clear"
 alias kb='swipl --quiet -s "$KB_PATH/prolog/kb.pl"'
 alias kb.="kb"
 alias rhymeswith='cd ~/temp/rhymeswith/ && ./rhymeswith'
+alias tclsh='rlwrap tclsh'
 
 # Added this on 2021-12-17
 # It creates and activates a new python virtual env if it does not exist
