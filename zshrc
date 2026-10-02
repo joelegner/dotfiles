@@ -329,3 +329,5 @@ export KB_PATH="/Users/joelegner/kb"
 export TPE_PATH="/Users/joelegner/tpe"
 export PROLOG_PATH="/Users/joelegner/prolog"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export BC_ENV_ARGS="-l $HOME/.bcrc"
+
