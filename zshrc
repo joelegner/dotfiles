@@ -325,9 +325,16 @@ prompt default
 # Add P14: Axiomat
 export PATH="$PATH:/Users/joelegner/axiomat"
 
+# kb project paths
 export KB_PATH="/Users/joelegner/kb"
+export KB_MP3_PATH="$HOME/iCloud/Documents/02-areas/Music/Mp3_data"
 export TPE_PATH="/Users/joelegner/tpe"
+# I do not know what the following does for me. 
 export PROLOG_PATH="/Users/joelegner/prolog"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export BC_ENV_ARGS="-l $HOME/.bcrc"
 
+
+# hermes alias: runs hermes --tui with a warning
+alias hermes='echo "Warning: running hermes in TUI mode" && hermes --tui'
+# To run the original hermes (bypass alias), use: \hermes or command hermes
